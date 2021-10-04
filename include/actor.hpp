@@ -15,7 +15,7 @@ public:
 
 	const glob::vect &pos() { return _pos; };
 
-	void velocity(const glob::vect &v) { _velocity = v; };
+	void get_velocity(const glob::vect &v) { _velocity = v; };
 
 	virtual void update() { _pos += _velocity * glob::pdt.count() / 1000; };
 
@@ -25,8 +25,6 @@ public:
 private:
 	glob::vect _pos;
 	glob::vect _velocity;
-
-	sf::CircleShape _drawable;
 };
 
 

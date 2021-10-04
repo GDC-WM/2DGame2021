@@ -7,7 +7,7 @@
 
 
 UserView::UserView(std::shared_ptr<GameState> game_state)
-		: _game_state(game_state), View(game_state->actors()) {
+		: _game_state(game_state), View(game_state->get_actors()) {
 	// initialize window
 	_window = std::make_unique<sf::RenderWindow>
 			(sf::VideoMode(1280, 720, 32), "", sf::Style::Titlebar | sf::Style::Close);

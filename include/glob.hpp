@@ -9,6 +9,9 @@ namespace glob {
 	/* physics update time in ms */
 	inline extern const auto pdt = std::chrono::milliseconds(16);
 
+	/* scale of drawing */
+	inline extern const float scale = 0.08;
+
 	/* Geometric vector */
 	struct vect {
 		vect() {};

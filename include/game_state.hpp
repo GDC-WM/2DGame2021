@@ -18,12 +18,16 @@ public:
 	/**
 	 * @return the list of actors.
 	 */
-	auto actors() { return _actors; };
+	const auto &get_actors() const { return _actors; };
+
+	void add_actor(std::shared_ptr<Actor> a) { _actors->push_back(a); };
 
 	/**
 	 * @return the list of views.
 	 */
-	auto views() { return _views; };
+	const auto &get_views() const { return _views; };
+
+	void add_view(std::shared_ptr<View> v) { _views->push_back(v); };
 
 	void update();
 
