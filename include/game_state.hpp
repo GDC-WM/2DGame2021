@@ -20,7 +20,7 @@ public:
 	 */
 	const auto &get_actors() const { return _actors; };
 
-	void add_actor(std::shared_ptr<Actor> a) { _actors->push_back(a); };
+	void add_actor(std::shared_ptr<Actor> a);
 
 	/**
 	 * @return the list of views.
