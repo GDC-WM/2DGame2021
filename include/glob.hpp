@@ -1,0 +1,69 @@
+#ifndef GLOB_HPP
+#define GLOB_HPP
+
+#include <cmath>
+#include <chrono>
+
+
+namespace glob {
+	/* physics update time in ms */
+	inline extern const auto pdt = std::chrono::milliseconds(16);
+
+	/* Geometric vector */
+	struct vect {
+		vect() {};
+
+		vect(const float &x, const float &y) : x(x), y(y) {};
+
+		/* Magnitude */
+		float length() { return std::sqrt(x * x + y * y); };
+
+		/* Angle */
+		float angle() { return std::atan2(y, x); };
+
+		/* Negate */
+		vect operator-() const { return vect(-x, -y); };
+
+		/* Add */
+		vect operator+(const vect &v) const { return vect(x + v.x,
+		                                                  y + v.y); };
+
+		/* Subtract */
+		vect operator-(const vect &v) const { return vect(x - v.x,
+		                                                  y - v.y); };
+
+		/* Multiply by a scalar */
+		vect operator*(const float &s) const { return vect(x * s,
+		                                                   y * s); };
+
+		/* Divide by a scalar */
+		vect operator/(const float &s) const { return vect(x / s,
+		                                                   y / s); };
+
+		/* Dot product */
+		float operator*(const vect &v) const { return x * v.x
+		                                            + y * v.y; };
+
+		/* Subtract from this vector */
+		void operator+=(const vect &v) { x += v.x; y += v.y; };
+
+		/* Subtract from this vector */
+		void operator-=(const vect &v) { x -= v.x; y -= v.y; };
+
+		/* Multiply into this vector by a scalar */
+		void operator*=(const float &s) { x *= s; y *= s; };
+
+		/* Divide into this vector by a scalar */
+		void operator/=(const float &s) { x /= s; y /= s; };
+
+		float x, y;
+	};
+
+	/* Multiply by a scalar */
+	inline vect operator*(const float &s, const vect &v) {
+		return vect(v.x * s, v.y * s);
+	};
+}
+
+
+#endif
