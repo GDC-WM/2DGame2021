@@ -7,7 +7,7 @@
 
 namespace glob {
 	/* physics update time in ms */
-	inline extern const auto pdt = std::chrono::milliseconds(16);
+	inline extern const double dt = 1.0 / 60.0;
 
 	/* scale of drawing */
 	inline extern const float scale = 0.08;

@@ -7,7 +7,7 @@
 
 
 /**
- * An astranomical body
+ * Superclass for all objects in the game
  */
 class Actor {
 public:
@@ -17,7 +17,7 @@ public:
 
 	void get_velocity(const glob::vect &v) { _velocity = v; };
 
-	virtual void update() { _pos += _velocity * glob::pdt.count() / 1000; };
+	virtual void update() { _pos += _velocity * glob::dt; };
 
 	virtual void draw(sf::RenderWindow &window) {};
 
