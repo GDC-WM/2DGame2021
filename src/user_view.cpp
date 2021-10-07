@@ -32,6 +32,12 @@ void UserView::draw() {
 	// clear screen
 	_window->clear(sf::Color::Black);
 
+	sf::CircleShape circle(40); 
+	circle.setFillColor(sf::Color::Red); 
+	circle.setPosition(15, 15); 
+
+	_window->draw(circle); 
+
 	// draw actors
 	for (auto actor : *_actors) actor->draw(*_window);
 
