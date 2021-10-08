@@ -93,9 +93,7 @@ public:
 	/**
 	 * Mirror sprite
 	 */
-	void mirror() {
-		_sprite.setScale(-_sprite.getScale().x, glob::scale);
-	};
+	void mirror() { _sprite.setScale(-_sprite.getScale().x, glob::scale); };
 
 	/**
 	 * Reset the animation to the first frame in the sequence.
