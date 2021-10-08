@@ -1,6 +1,7 @@
 #ifndef GLOB_HPP
 #define GLOB_HPP
 
+#include <SFML/System/Vector2.hpp>
 #include <cmath>
 #include <chrono>
 
@@ -10,7 +11,7 @@ namespace glob {
 	inline extern const double dt = 1.0 / 60.0;
 
 	/* scale of drawing */
-	inline extern const float scale = 0.08;
+	inline extern const float scale = 1; // TODO: settle in on a scale factor
 
 	/* Geometric vector */
 	struct vect {
@@ -66,6 +67,13 @@ namespace glob {
 	inline vect operator*(const float &s, const vect &v) {
 		return vect(v.x * s, v.y * s);
 	};
+
+	/**
+	 * Convert vectors
+	 */
+	inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y); };
+
+	inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y); };
 }
 
 
