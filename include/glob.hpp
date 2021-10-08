@@ -12,7 +12,7 @@ namespace glob {
 	inline extern const double dt = 1.0 / 60.0;
 
 	/* scale of drawing */
-	inline extern const float scale = 0.08;
+	inline extern const float scale = 1; // TODO: settle in on a scale factor
 
 	/* Geometric vector */
 	struct vect {
