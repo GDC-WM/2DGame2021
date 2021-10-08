@@ -4,7 +4,6 @@
 #include <SFML/System/Vector2.hpp>
 #include <cmath>
 #include <chrono>
-#include <SFML/Graphics.hpp>
 
 
 namespace glob {
