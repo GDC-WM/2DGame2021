@@ -1,8 +1,10 @@
 #ifndef GLOB_HPP
 #define GLOB_HPP
 
+#include <SFML/System/Vector2.hpp>
 #include <cmath>
 #include <chrono>
+#include <SFML/Graphics.hpp>
 
 
 namespace glob {
@@ -66,6 +68,13 @@ namespace glob {
 	inline vect operator*(const float &s, const vect &v) {
 		return vect(v.x * s, v.y * s);
 	};
+
+	/**
+	 * Convert vectors
+	 */
+	inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y); };
+
+	inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y); };
 }
 
 

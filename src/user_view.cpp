@@ -14,7 +14,7 @@ UserView::UserView(std::shared_ptr<GameState> game_state)
 }
 
 
-void UserView::listen() {
+void UserView::_listen() {
 	sf::Event event;
 	while (_window->pollEvent(event)) {
 		switch (event.type) {
@@ -41,5 +41,5 @@ void UserView::draw() {
 
 
 void UserView::update() {
-	this->listen();
+	_listen();
 }

@@ -35,7 +35,7 @@ private:
 	/**
 	 * Respond to events
 	 */
-	void listen(void);
+	void _listen(void);
 };
 
 
