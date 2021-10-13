@@ -14,20 +14,6 @@ UserView::UserView(std::shared_ptr<GameState> game_state)
 }
 
 
-void UserView::_listen() {
-	sf::Event event;
-	while (_window->pollEvent(event)) {
-		switch (event.type) {
-			case sf::Event::Closed:
-				_window->close();
-				_running = false;
-				break;
-			default:; // ignore other events
-		}
-	}
-}
-
-
 void UserView::draw() {
 	// clear screen
 	_window->clear(sf::Color::Black);
@@ -42,4 +28,18 @@ void UserView::draw() {
 
 void UserView::update() {
 	_listen();
+}
+
+
+void UserView::_listen() {
+	sf::Event event;
+	while (_window->pollEvent(event)) {
+		switch (event.type) {
+			case sf::Event::Closed:
+				_window->close();
+				_running = false;
+				break;
+			default:; // ignore other events
+		}
+	}
 }

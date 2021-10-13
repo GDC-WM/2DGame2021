@@ -1,5 +1,18 @@
 ## DESCRIPTION
 * Uses C++ and the SFML graphics library
+* Class hierarchy: 
+```
+main <- StateController <-> State
+                            |- StateMenu
+                            |- StatePlaying <-------------- Body
+                            |               <- View <-------|
+                            |                  |- UserView  |- character
+                            |                  |- AIView    |  |- enemy
+                            |                               |  |- playerWall
+                            |                               |- Wall
+                            |                               |- Item
+                            |- StatePaused
+```
 
 ## BUILD/RUN:
 * Install dependencies: `make`, `cmake`, `gcc`, `sfml`
