@@ -8,7 +8,7 @@ main <- StateController <-> State
                             |               <- View <-------|
                             |                  |- UserView  |- character
                             |                  |- AIView    |  |- enemy
-                            |                               |  |- playerWall
+                            |                               |  |- player
                             |                               |- Wall
                             |                               |- Item
                             |- StatePaused

@@ -12,30 +12,23 @@ class Actor;
 
 class UserView : public View {
 public:
-	UserView(std::shared_ptr<GameState> game_state);
+	UserView(std::shared_ptr<GameState>);
 
 	/**
-	 * @return whether the window is open
+	 * Draw the screen
 	 */
-	const bool &running() const { return _running; };
+	void draw(sf::RenderWindow &w);
 
 	/**
-	 * Draw the screen.
+	 * Respond to event
 	 */
-	void draw();
+	void handle_event(const sf::Event &e);
 
 	void update() override;
 
 
 private:
-	std::unique_ptr<sf::RenderWindow> _window;
 	std::shared_ptr<GameState> _game_state;
-	bool _running = true;
-
-	/**
-	 * Respond to events
-	 */
-	void _listen(void);
 };
 
 
