@@ -4,11 +4,11 @@
 ```
 main <- StateController <-> State
                             |- StateMenu
-                            |- StatePlaying <-------------- Body
+                            |- StatePlaying <-------------- Actor
                             |               <- View <-------|
-                            |                  |- UserView  |- character
-                            |                  |- AIView    |  |- enemy
-                            |                               |  |- player
+                            |                  |- UserView  |- Character
+                            |                  |- AIView    |  |- Enemy
+                            |                               |  |- Player
                             |                               |- Wall
                             |                               |- Item
                             |- StatePaused

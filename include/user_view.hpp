@@ -6,13 +6,11 @@
 
 #include "view.hpp"
 
-class GameState;
-class Actor;
-
 
 class UserView : public View {
 public:
-	UserView(std::shared_ptr<GameState>);
+	UserView(const std::shared_ptr<std::list<std::shared_ptr<Actor>>> &actors)
+			: View(actors) {};
 
 	/**
 	 * Draw the screen
@@ -25,10 +23,6 @@ public:
 	void handle_event(const sf::Event &e);
 
 	void update() override;
-
-
-private:
-	std::shared_ptr<GameState> _game_state;
 };
 
 

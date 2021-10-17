@@ -6,11 +6,6 @@
 #include "actor.hpp"
 
 
-UserView::UserView(std::shared_ptr<GameState> game_state)
-		: _game_state(game_state), View(game_state->get_actors()) {
-}
-
-
 void UserView::draw(sf::RenderWindow &w) {
 	// clear screen
 	w.clear(sf::Color::Black);
