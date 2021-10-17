@@ -14,18 +14,22 @@ methods:
 #include <iostream>
 GameController::GameController(){
  // instantiate to title
- _state = new StateMenu(); 
+ _state = std::make_shared<StateMenu>();  
  _window = std::make_unique<sf::RenderWindow>
 			(sf::VideoMode(1280, 720, 32), "Best game", sf::Style::Titlebar | sf::Style::Close);
 isRunning = true; 
 
-    sf::CircleShape circle(50); 
-    circle.setFillColor(sf::Color::Red); 
-    _window->draw(circle);
 }
 
-
+/*
+    1) Handles close event, delegate other events to _state 
+    2) calls _state update
+    3) calls _state draw
+*/
 void GameController::update(){
+    // clear screen 
+    _window->clear(sf::Color::Black);
+    std::shared_ptr<State> newState; 
     sf::Event event;
     // while there are pending events...
     while (_window->pollEvent(event)) { // while 
@@ -35,14 +39,23 @@ void GameController::update(){
                 isRunning = false; 
                 return; // skip on current update() if closing window cuz we're done
 			default: // delegate to State
-                _state->handle_event(event); 
+                newState =  _state->handle_event(event); 
+                if(newState != NULL){ 
+                    std::cout << "right about to transition to new state" << std::endl; 
+                    _state = newState; 
+                    return; // maybe shouldn't directly return
+                }
              
 		}
 	}
+    std::cout << "stuff" << std::endl; 
 
-    std::shared_ptr<State> NewState = _state->update();
-    if(NewState!=NULL){
-        //_state = &NewState; 
+    newState = _state->update();
+    if(newState!=NULL){
+        _state = newState; 
     } 
     _state->draw(*_window); 
+
+    //display window
+    _window->display(); 
 }

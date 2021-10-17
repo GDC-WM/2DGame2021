@@ -11,7 +11,7 @@ class GameController{
         bool isRunning; // fuck private vars baby
 
     private: 
-        State* _state; 
+        std::shared_ptr<State> _state; 
         std::unique_ptr<sf::RenderWindow> _window; 
         
 };

@@ -6,10 +6,13 @@
 #include "view.hpp"
 #include "actor.hpp"
 
-
+#include <iostream>
 StatePlaying::StatePlaying() {
+	std::cout << "stateplaying constructor calld" << std::endl; 
+	
 	_actors = std::make_shared<std::list<std::shared_ptr<Actor>>>();
 	_views = std::make_shared<std::list<std::shared_ptr<View>>>();
+	_user_view = std::make_shared<UserView>(_actors); 
 }
 
 std::shared_ptr<State>  StatePlaying::handle_event(const sf::Event &e) {
@@ -28,3 +31,4 @@ std::shared_ptr<State> StatePlaying::update() {
 	for (auto actor : *_actors) actor->update();
 	return NULL;
 }
+
