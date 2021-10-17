@@ -16,6 +16,9 @@ public:
 
 	virtual void handle_event(const sf::Event &) = 0;
 
+	/**
+	 * @return State to switch to
+	 */
 	virtual std::shared_ptr<State> update() = 0;
 };
 

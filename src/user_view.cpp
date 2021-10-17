@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "user_view.hpp"
-#include "game_state.hpp"
 #include "actor.hpp"
 
 

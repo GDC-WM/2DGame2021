@@ -1,25 +1,30 @@
-#ifndef GAME_STATE_HPP
-#define GAME_STATE_HPP
+#ifndef STATE_PLAYING_HPP
+#define STATE_PLAYING_HPP
 
 #include <list>
 #include <memory>
+#include <SFML/Graphics.hpp>
+
+#include "state.hpp"
+#include "user_view.hpp"
 
 class View;
 class Actor;
 
 
 /*
- * A state of the game (grouping of the views and model)
+ * A state of the game
  */
-class GameState {
+class StatePlaying : public State {
 public:
-	GameState();
+	StatePlaying();
 
 	/**
 	 * @return the list of actors.
 	 */
 	const auto &get_actors() const { return _actors; };
 
+	// TODO: maybe move this method to glob
 	void add_actor(std::shared_ptr<Actor> a);
 
 	/**
@@ -27,14 +32,20 @@ public:
 	 */
 	const auto &get_views() const { return _views; };
 
+	// TODO: maybe remove this method
 	void add_view(std::shared_ptr<View> v) { _views->push_back(v); };
 
-	void update();
+	void draw(sf::RenderWindow &w) const override { _user_view->draw(w); };
+
+	void handle_event(const sf::Event &) override;
+
+	std::shared_ptr<State> update() override;
 
 
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Actor>>> _actors;
+	std::shared_ptr<UserView> _user_view;
 };
 
 
