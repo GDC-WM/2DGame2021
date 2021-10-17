@@ -10,11 +10,11 @@
  */
 class State {
 public:
-	State();
+	State(){}; 
 
 	virtual void draw(sf::RenderWindow &) const = 0;
 
-	virtual void handle_event(const sf::Event &) = 0;
+	virtual std::shared_ptr<State> handle_event(const sf::Event &) = 0;
 
 	/**
 	 * @return State to switch to

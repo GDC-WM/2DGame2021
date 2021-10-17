@@ -37,7 +37,7 @@ public:
 
 	void draw(sf::RenderWindow &w) const override { _user_view->draw(w); };
 
-	void handle_event(const sf::Event &) override;
+	std::shared_ptr<State> handle_event(const sf::Event &) override;
 
 	std::shared_ptr<State> update() override;
 
