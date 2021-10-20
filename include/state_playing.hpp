@@ -17,7 +17,7 @@ class Actor;
  */
 class StatePlaying : public State {
 public:
-	StatePlaying();
+	StatePlaying(std::shared_ptr<StateController> sc);
 
 	/**
 	 * @return the list of actors.
@@ -37,9 +37,9 @@ public:
 
 	void draw(sf::RenderWindow &w) const override { _user_view->draw(w); };
 
-	std::shared_ptr<State> handle_event(const sf::Event &) override;
+	void handle_event(const sf::Event &) override;
 
-	std::shared_ptr<State> update() override;
+	void update() override;
 
 
 private:

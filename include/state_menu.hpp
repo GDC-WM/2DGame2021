@@ -1,18 +1,18 @@
-
 #include "state.hpp"
 
-class StateMenu: public State{
-    public: 
-        StateMenu();
 
-        void draw(sf::RenderWindow &w) const override; 
+class StateMenu : public State {
+public:
+	StateMenu(std::shared_ptr<StateController> sc);
 
-        std::shared_ptr<State> handle_event(const sf::Event &) override; 
+	void draw(sf::RenderWindow &) const override;
 
-        std::shared_ptr<State> update() override; 
+	void handle_event(const sf::Event &) override;
 
-    public: 
-        sf::Text text; 
-        sf::Font font; 
+	void update() override {};
 
+
+public:
+	sf::Text text;
+	sf::Font font;
 };

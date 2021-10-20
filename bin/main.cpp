@@ -4,20 +4,21 @@
 #include <cmath>
 
 #include "glob.hpp"
-#include "user_view.hpp"
-#include "game_controller.hpp"
-#include <iostream>
-int main(int argc, char** argv) {
-	GameController gameController; 
+#include "state_controller.hpp"
+#include "state_menu.hpp"
 
+
+int main(int argc, char** argv) {
+	std::shared_ptr<StateController> game = std::make_shared<StateController>(); 
+	game->set_state(std::make_shared<StateMenu>(game));
+
+	// game update loop
 	auto loop_dt = std::chrono::nanoseconds(long(std::round(glob::dt * 10E9)));
 	using clock = std::chrono::steady_clock;
 	clock::time_point next_update = clock::now();
-	std::cout << "Before game controller initialize" << std::endl; 
-	while (gameController.isRunning) {
+	while (game->running()) {
 		next_update += loop_dt; // = ~60fps
-		gameController.update(); 
-
+		game->update(); 
 		std::this_thread::sleep_for(next_update - clock::now());
 	}
 

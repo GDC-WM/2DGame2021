@@ -1,62 +1,44 @@
-#include "state_menu.hpp"
-#include <iostream> 
+#include <iostream>
 #include <SFML/Graphics.hpp>
+
+#include "state_controller.hpp"
+#include "state_menu.hpp"
 #include "state_playing.hpp"
-StateMenu::StateMenu(){
-    text.setString("Start playing big noob!");
-    text.setCharacterSize(100); // in pixels, not points!
-    text.setPosition(sf::Vector2f(200, 200)); 
-    // set the color
-    text.setFillColor(sf::Color::Red);
-
-    if(!font.loadFromFile("fonts/arial.ttf"))
-    {
-        std::cout << "can't load font" << std::endl;
-    }else{
-    text.setFont(font); 
-    }
-        
-
-    }
-
-void StateMenu::draw(sf::RenderWindow &window) const{
-    // window.draw button
-    sf::CircleShape circle(50); 
-    circle.setFillColor(sf::Color::Red); 
-    circle.setPosition(sf::Vector2f(100, 100)); 
 
 
-    // set the character size
-    
+StateMenu::StateMenu(std::shared_ptr<StateController> sc) : State(sc) {
+	text.setString("Start playing big noob!");
+	text.setCharacterSize(100);
+	text.setPosition(sf::Vector2f(200, 200));
+	text.setFillColor(sf::Color::Red);
 
-    window.draw(circle); 
-    window.draw(text);  // TODO: this isn't working rn 
+	if (!font.loadFromFile("../fonts/arial.ttf"))
+		std::cout << "can't load font" << std::endl;
+	else text.setFont(font);
 }
 
-std::shared_ptr<State> StateMenu::handle_event(const sf::Event &e){
-    
-    switch(e.type){
-        // if clicked on play button then return state playing
-        case sf::Event::MouseButtonPressed: {
-            // transition on click
-            sf::Vector2i position = sf::Mouse::getPosition(); 
-            int x = position.x; 
-            int y = position.y; 
-            std::cout << "x" << position.x <<"y"<<  position.y << std::endl; 
-            std::cout << "should transition to new state!" << std::endl;
-            std::shared_ptr<StatePlaying> woah = std::make_shared<StatePlaying>(); 
-            return woah; 
-          
-            break; 
-        }
 
-        default:; 
-    }
+void StateMenu::draw(sf::RenderWindow &window) const {
+	// window.draw button
+	sf::CircleShape circle(50);
+	circle.setFillColor(sf::Color::Red);
+	circle.setPosition(sf::Vector2f(100, 100));
 
-    return NULL; 
+	window.draw(circle);
+	window.draw(text);
 }
 
-std::shared_ptr<State> StateMenu::update() {
-    // nothing really updates 
-	return NULL;
+
+void StateMenu::handle_event(const sf::Event &e) {
+	switch (e.type) {
+		// play button switches state playing
+		case sf::Event::MouseButtonPressed:
+			// TODO: temporary crap, later use a button actor check collision
+			// with the mouse pointer:
+			if (sf::Mouse::getPosition(_state_controller->window()).x < 150)
+				_state_controller->set_state(
+						std::make_shared<StatePlaying>(_state_controller));
+			break;
+		default:;
+	}
 }
