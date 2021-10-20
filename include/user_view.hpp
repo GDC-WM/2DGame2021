@@ -22,7 +22,7 @@ public:
 	 */
 	void handle_event(const sf::Event &e);
 
-	void update() override;
+	void update() override {};
 };
 
 

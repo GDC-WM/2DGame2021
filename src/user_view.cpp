@@ -6,23 +6,14 @@
 
 
 void UserView::draw(sf::RenderWindow &w) {
-	// clear screen
-	w.clear(sf::Color::Black);
-
 	// draw actors
 	for (auto actor : *_actors) actor->draw(w);
-
-	// display screen
-	w.display();
 }
 
 
 void UserView::handle_event(const sf::Event &e) {
 	switch (e.type) {
+		// TODO: do stuff here
 		default:; // ignore other events
 	}
-}
-
-
-void UserView::update() {
 }

@@ -7,9 +7,10 @@
 #include "actor.hpp"
 
 
-StatePlaying::StatePlaying() {
+StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
 	_actors = std::make_shared<std::list<std::shared_ptr<Actor>>>();
 	_views = std::make_shared<std::list<std::shared_ptr<View>>>();
+	_user_view = std::make_shared<UserView>(_actors); 
 }
 
 
@@ -29,8 +30,7 @@ void StatePlaying::handle_event(const sf::Event &e) {
 }
 
 
-std::shared_ptr<State> StatePlaying::update() {
+void StatePlaying::update() {
 	for (auto view : *_views) view->update();
 	for (auto actor : *_actors) actor->update();
-	return NULL;
 }
