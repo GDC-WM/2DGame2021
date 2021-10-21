@@ -37,7 +37,7 @@ public:
 private:
 	std::shared_ptr<State> _state;
 	std::unique_ptr<sf::RenderWindow> _window;
-	bool _running;
+	bool _running = true;
 };
 
 #endif
