@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <chrono>
+#include <cmath>
 
 #include "glob.hpp"
 #include "sprite_sheet.hpp"

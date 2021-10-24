@@ -36,7 +36,7 @@ void StateMenu::handle_event(const sf::Event &e) {
 			// TODO: temporary crap, later use a button actor check collision
 			// with the mouse pointer:
 			if (sf::Mouse::getPosition(_state_controller->window()).x < 150)
-				_state_controller->set_state(
+				_state_controller->states().push(
 						std::make_shared<StatePlaying>(_state_controller));
 			break;
 		default:;

@@ -10,11 +10,13 @@ StateController::StateController() {
 
 
 void StateController::update() {
-	_state->update();
+	if (_states.empty()) _running = false;
+
+	_states.top()->update();
 
 	// draw frame
 	_window->clear(sf::Color::Black);
-	_state->draw(*_window);
+	_states.top()->draw(*_window);
 	_window->display();
 
 	// poll events
@@ -25,6 +27,6 @@ void StateController::update() {
 			_running = false;
 			return;
 		}
-		_state->handle_event(event);
+		_states.top()->handle_event(event);
 	}
 }

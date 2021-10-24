@@ -10,7 +10,7 @@
 
 int main(int argc, char** argv) {
 	std::shared_ptr<StateController> game = std::make_shared<StateController>(); 
-	game->set_state(std::make_shared<StateMenu>(game));
+	game->states().emplace(std::make_shared<StateMenu>(game));
 
 	// game update loop
 	auto loop_dt = std::chrono::nanoseconds(long(std::round(glob::dt * 10E9)));
