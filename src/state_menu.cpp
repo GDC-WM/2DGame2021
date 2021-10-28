@@ -15,6 +15,10 @@ StateMenu::StateMenu(std::shared_ptr<StateController> sc) : State(sc) {
 	if (!font.loadFromFile("../fonts/arial.ttf"))
 		std::cout << "can't load font" << std::endl;
 	else text.setFont(font);
+
+
+	
+
 }
 
 
@@ -26,6 +30,20 @@ void StateMenu::draw(sf::RenderWindow &window) const {
 
 	window.draw(circle);
 	window.draw(text);
+	
+	
+	sf::Texture texture;
+
+	if (!texture.loadFromFile("btn_newGame.png"))
+	{
+		std::cout << "can't load button sprite" << std::endl;
+	}
+	
+	sf::Sprite new_game_button;
+	new_game_button.setTexture(texture);
+	
+	window.draw(new_game_button);
+
 }
 
 
