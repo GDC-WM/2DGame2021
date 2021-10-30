@@ -17,6 +17,7 @@ void UserView::draw(sf::RenderWindow &w) {
 void UserView::handle_event(const sf::Event &e) {
 	switch (e.type) {
 		// TODO: do stuff here
+		//case sf::Keyboard::W:
 		default:; // ignore other events
 	}
 }
