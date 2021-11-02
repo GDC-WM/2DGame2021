@@ -9,6 +9,7 @@ public:
 	void set_direction(const float &d); // d stands for direction
 protected:
 	glob::vect _size;
+	float _speed = 1;
 };
 
 #endif

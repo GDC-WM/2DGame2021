@@ -11,8 +11,6 @@
  */
 class Actor {
 public:
-    Actor(){}; 
-	
 	Actor(const glob::vect &pos){ _pos = pos; };
 
 	const glob::vect &get_pos() { return _pos; };
@@ -28,7 +26,7 @@ public:
 
 protected:
 	glob::vect _pos;
-	glob::vect _velocity;
+	glob::vect _velocity {0,0};
 };
 
 
