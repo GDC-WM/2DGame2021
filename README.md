@@ -4,7 +4,7 @@
 ```
 main <- StateController <-> State
                             |- StateMenu
-                            |- StatePlaying <-------------- Actor
+                            |- StatePlaying <-------------- Entity
                             |               <- View <-------|
                             |                  |- UserView  |- Character
                             |                  |- AIView    |  |- Enemy

@@ -9,8 +9,8 @@
 
 class UserView : public View {
 public:
-	UserView(const std::shared_ptr<std::list<std::shared_ptr<Actor>>> &actors)
-			: View(actors) {};
+	UserView(const std::shared_ptr<std::list<std::shared_ptr<Entity>>> &entities)
+			: View(entities) {};
 
 	/**
 	 * Draw the screen
