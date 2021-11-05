@@ -4,7 +4,7 @@
 #include "state_controller.hpp"
 #include "state_menu.hpp"
 #include "state_playing.hpp"
-#include "character.hpp"
+#include "main_character.hpp"
 #include "glob.hpp"
 
 
@@ -37,10 +37,11 @@ void StateMenu::handle_event(const sf::Event &e) {
 		case sf::Event::MouseButtonPressed:
 			// TODO: temporary crap, later use a button actor check collision
 			// with the mouse pointer:
-			if (sf::Mouse::getPosition(_state_controller->window()).x < 150)
-			{
+			if (sf::Mouse::getPosition(_state_controller->window()).x < 150) {
 				std::shared_ptr<StatePlaying> new_state = std::make_shared<StatePlaying>(_state_controller);
-				new_state->add_actor(std::make_shared<Character>(glob::vect(30,30), glob::vect(30,30)));
+				std::shared_ptr<MainCharacter> a = std::make_shared<MainCharacter>(glob::vect(100,100));
+				a->set_direction(1);
+				new_state->add_actor(a);
 				_state_controller->states().push(new_state);
 			}
 			break;
