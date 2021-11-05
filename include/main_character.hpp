@@ -1,7 +1,7 @@
 #ifndef MAIN_CHARACTER_HPP
 #define MAIN_CHARACTER_HPP
 
-#include "actor.hpp"
+#include "entity.hpp"
 #include "character.hpp"
 
 #include "sprite_sheet.hpp"

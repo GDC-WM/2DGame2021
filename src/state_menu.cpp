@@ -35,13 +35,13 @@ void StateMenu::handle_event(const sf::Event &e) {
 	switch (e.type) {
 		// play button switches state playing
 		case sf::Event::MouseButtonPressed:
-			// TODO: temporary crap, later use a button actor check collision
+			// TODO: temporary crap, later use a button entity check collision
 			// with the mouse pointer:
 			if (sf::Mouse::getPosition(_state_controller->window()).x < 150) {
 				std::shared_ptr<StatePlaying> new_state = std::make_shared<StatePlaying>(_state_controller);
 				std::shared_ptr<MainCharacter> a = std::make_shared<MainCharacter>(glob::vect(100,100));
 				a->set_direction(1);
-				new_state->add_actor(a);
+				new_state->add_entity(a);
 				_state_controller->states().push(new_state);
 			}
 			break;

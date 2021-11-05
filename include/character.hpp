@@ -1,14 +1,14 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include "actor.hpp"
+#include "entity.hpp"
 #include "glob.hpp"
 
 
-class Character : public Actor {
+class Character : public Entity {
 public:
 	Character(const glob::vect &pos, const glob::vect &size = { 0, 0 })
-			: Actor(pos, size) {};
+			: Entity(pos, size) {};
 
 	/**
 	 * @param d the new direction of movement in radians
@@ -17,7 +17,7 @@ public:
 
 
 protected:
-	float _speed; // speed of movement of the actor
+	float _speed; // speed of movement of the entity
 };
 
 

@@ -9,7 +9,7 @@
 #include "user_view.hpp"
 
 class View;
-class Actor;
+class Entity;
 
 
 /*
@@ -20,12 +20,12 @@ public:
 	StatePlaying(std::shared_ptr<StateController> sc);
 
 	/**
-	 * @return the list of actors.
+	 * @return the list of entities.
 	 */
-	const auto &get_actors() const { return _actors; };
+	const auto &get_entities() const { return _entities; };
 
 	// TODO: maybe move this method to glob
-	void add_actor(std::shared_ptr<Actor> a);
+	void add_entity(std::shared_ptr<Entity> a);
 
 	/**
 	 * @return the list of views.
@@ -54,7 +54,7 @@ public:
 
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
-	std::shared_ptr<std::list<std::shared_ptr<Actor>>> _actors;
+	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
 	std::shared_ptr<UserView> _user_view;
 };
 

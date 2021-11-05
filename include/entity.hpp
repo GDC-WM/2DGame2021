@@ -1,5 +1,5 @@
-#ifndef ACTOR_HPP
-#define ACTOR_HPP
+#ifndef ENTITY_HPP
+#define ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -9,9 +9,9 @@
 /**
  * Superclass for all objects in the game
  */
-class Actor {
+class Entity {
 public:
-	Actor(const glob::vect &pos, const glob::vect &size = { 0, 0 })
+	Entity(const glob::vect &pos, const glob::vect &size = { 0, 0 })
 			: _pos(pos), _size(size) {};
 
 	const glob::vect &get_pos() { return _pos; };

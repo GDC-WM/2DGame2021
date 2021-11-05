@@ -2,12 +2,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "user_view.hpp"
-#include "actor.hpp"
+#include "entity.hpp"
 
 
 void UserView::draw(sf::RenderWindow &w) {
-	// draw actors
-	for (auto actor : *_actors) actor->draw(w);
+	// draw entities
+	for (auto entity : *_entities) entity->draw(w);
 }
 
 /*
