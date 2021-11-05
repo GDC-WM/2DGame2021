@@ -37,8 +37,18 @@ public:
 
 	void draw(sf::RenderWindow &w) const override { _user_view->draw(w); };
 
+	/*
+	 * Game Controller intercepts event and delegates it to the current State's handle_event 
+	 * function. This means, if the game is in StatePlaying state, Game Controller sends 
+	 * the events to the function below. 
+	 */
 	void handle_event(const sf::Event &) override;
 
+	/*
+	 * Game Controller issues the current state to update every frame. This means, 
+	 * if the game is in StatePlaying state, the function below gets called every 
+	 * frame
+	 */
 	void update() override;
 
 
