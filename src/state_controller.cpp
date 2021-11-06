@@ -1,5 +1,5 @@
 #include "state_controller.hpp"
-#include "state_menu.hpp"
+#include "state.hpp"
 
 
 StateController::StateController() {
@@ -10,7 +10,10 @@ StateController::StateController() {
 
 
 void StateController::update() {
-	if (_states.empty()) _running = false;
+	if (_states.empty()) {
+		_running = false;
+		return;
+	}
 
 	_states.top()->update();
 
@@ -20,13 +23,13 @@ void StateController::update() {
 	_window->display();
 
 	// poll events
-	sf::Event event;
-	while (_window->pollEvent(event)) {
-		if (event.type == sf::Event::Closed) {
+	sf::Event ev;
+	while (_window->pollEvent(ev)) {
+		if (ev.type == sf::Event::Closed) {
 			_window->close();
 			_running = false;
 			return;
 		}
-		_states.top()->handle_event(event);
+		_states.top()->handle_event(ev);
 	}
 }

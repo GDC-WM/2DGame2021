@@ -6,10 +6,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "state.hpp"
+#include "view.hpp"
 #include "user_view.hpp"
 
 class View;
 class Entity;
+class StateController;
 
 
 /*
@@ -17,7 +19,7 @@ class Entity;
  */
 class StatePlaying : public State {
 public:
-	StatePlaying(std::shared_ptr<StateController> sc);
+	StatePlaying(std::shared_ptr<StateController>);
 
 	/**
 	 * @return the list of entities.
@@ -25,7 +27,7 @@ public:
 	const auto &get_entities() const { return _entities; };
 
 	// TODO: maybe move this method to glob
-	void add_entity(std::shared_ptr<Entity> a);
+	void add_entity(std::shared_ptr<Entity>);
 
 	/**
 	 * @return the list of views.

@@ -10,10 +10,7 @@ void UserView::draw(sf::RenderWindow &w) {
 	for (auto entity : *_entities) entity->draw(w);
 }
 
-/*
-* UserView is quite a special boi! It is not like the other views, since 
-* StatePlaying.handle_event is delegated to this view. 
-*/
+
 void UserView::handle_event(const sf::Event &e) {
 	switch (e.type) {
 		// TODO: do stuff here

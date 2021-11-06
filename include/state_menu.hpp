@@ -3,7 +3,7 @@
 
 class StateMenu : public State {
 public:
-	StateMenu(std::shared_ptr<StateController> sc);
+	StateMenu(std::shared_ptr<StateController>);
 
 	void draw(sf::RenderWindow &) const override;
 

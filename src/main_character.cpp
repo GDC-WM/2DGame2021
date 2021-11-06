@@ -1,4 +1,3 @@
-#include "entity.hpp"
 #include "character.hpp"
 #include "main_character.hpp"
 #include "sprite_sheet.hpp"

@@ -1,8 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#include "state_controller.hpp"
+#include "state.hpp"
 #include "state_menu.hpp"
+#include "state_controller.hpp"
 #include "state_playing.hpp"
 #include "main_character.hpp"
 #include "glob.hpp"
@@ -20,29 +21,26 @@ StateMenu::StateMenu(std::shared_ptr<StateController> sc) : State(sc) {
 }
 
 
-void StateMenu::draw(sf::RenderWindow &window) const {
+void StateMenu::draw(sf::RenderWindow &w) const {
 	// window.draw button
 	sf::CircleShape circle(50);
 	circle.setFillColor(sf::Color::Red);
 	circle.setPosition(sf::Vector2f(100, 100));
 
-	window.draw(circle);
-	window.draw(text);
+	w.draw(circle);
+	w.draw(text);
 }
 
 
-void StateMenu::handle_event(const sf::Event &e) {
-	switch (e.type) {
+void StateMenu::handle_event(const sf::Event &ev) {
+	switch (ev.type) {
 		// play button switches state playing
 		case sf::Event::MouseButtonPressed:
 			// TODO: temporary crap, later use a button entity check collision
 			// with the mouse pointer:
 			if (sf::Mouse::getPosition(_state_controller->window()).x < 150) {
-				std::shared_ptr<StatePlaying> new_state = std::make_shared<StatePlaying>(_state_controller);
-				std::shared_ptr<MainCharacter> a = std::make_shared<MainCharacter>(glob::vect(100,100));
-				a->set_direction(1);
-				new_state->add_entity(a);
-				_state_controller->states().push(new_state);
+				_state_controller->states().push(
+						std::make_shared<StatePlaying>(_state_controller));
 			}
 			break;
 		default:;
