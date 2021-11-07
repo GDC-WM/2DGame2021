@@ -15,8 +15,6 @@ namespace glob {
 
 	/* Geometric vector */
 	struct vect {
-		vect() {};
-
 		vect(const float &x, const float &y) : x(x), y(y) {};
 
 		/* Magnitude */
@@ -48,6 +46,9 @@ namespace glob {
 		float operator*(const vect &v) const { return x * v.x
 		                                            + y * v.y; };
 
+		/* Equals? */
+		bool operator==(const vect &v) const { return x == v.x && y == v.y; };
+
 		/* Subtract from this vector */
 		void operator+=(const vect &v) { x += v.x; y += v.y; };
 
@@ -69,11 +70,20 @@ namespace glob {
 	};
 
 	/**
-	 * Convert vectors
+	 * Convert vectors. Flips Y axis and applies scale factor
 	 */
-	inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y); };
+	inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y) / scale; };
+	inline vect convert_vect(const sf::Vector2i &v) { return vect(v.x, -v.y) / scale; };
 
-	inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y); };
+	inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y) * scale; };
+
+	inline bool collides_point_rect(const vect &point,
+	                                const vect &rect_pos, const vect &rect_size) {
+		return point.x > rect_pos.x - (rect_size.x / 2)
+		    && point.y > rect_pos.y - (rect_size.y / 2)
+		    && point.x < rect_pos.x + (rect_size.x / 2)
+		    && point.y < rect_pos.y + (rect_size.y / 2);
+	}
 }
 
 

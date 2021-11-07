@@ -33,9 +33,9 @@ public:
 	 */
 	SpriteSheet(const std::string &filename, const int &sprite_length);
 
-	void set_pos(const glob::vect &v) { _sprite.setPosition(v.x, v.y); };
+	void set_pos(const glob::vect &v) { _sprite.setPosition(glob::convert_vect(v)); };
 
-	void set_pos(const float &x, const float &y) { _sprite.setPosition(x, y); };
+	void set_pos(const float &x, const float &y) { this->set_pos({ x, y }); };
 
 	/**
 	 * First updates the sprite to the proper frame, then returns

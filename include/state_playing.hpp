@@ -37,7 +37,7 @@ public:
 	// TODO: maybe remove this method
 	void add_view(std::shared_ptr<View> v) { _views->push_back(v); };
 
-	void draw(sf::RenderWindow &w) const override { _user_view->draw(w); };
+	void draw(sf::RenderWindow &w) override { _user_view->draw(w); };
 
 	/*
 	 * Game Controller intercepts event and delegates it to the current State's handle_event 
