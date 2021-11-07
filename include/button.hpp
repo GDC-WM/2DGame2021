@@ -25,6 +25,7 @@ public:
 
 private:
 	sf::Text _text;
+	sf::Font _font;
 	sf::RectangleShape _shape;
 };
 

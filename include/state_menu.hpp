@@ -21,8 +21,8 @@ public:
 
 
 public:
-	Button play_button { glob::vect(200, 200), "PLAY" };
-	sf::Text text;
+	Button play_button { glob::vect(round(_state_controller->window().getSize().x) / 2, 200), "PLAY" };
+	sf::Text _title_text;
 	sf::Font font;
 };
 

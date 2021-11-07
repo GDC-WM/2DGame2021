@@ -11,6 +11,10 @@
  */
 class Entity {
 public:
+	/**
+	 * @param pos center point of the actor
+	 * @param size dimensions of the actor (defaults to 0, 0)
+	 */
 	Entity(const glob::vect &pos, const glob::vect &size = { 0, 0 })
 			: _pos(pos), _size(size) {};
 

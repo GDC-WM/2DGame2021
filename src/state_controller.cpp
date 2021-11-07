@@ -1,13 +1,11 @@
 #include "state_controller.hpp"
 #include "state.hpp"
-#include <iostream>
 
 
 StateController::StateController() {
 	sf::View view = _window.getView();
 	view.move(0, -view.getSize().y);
 	_window.setView(view);
-	std::cout << _window.getView().getCenter().y << '\n';
 }
 
 

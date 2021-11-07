@@ -1,5 +1,6 @@
 #include <memory>
 #include <iostream>
+#include <cmath>
 #include <SFML/Graphics.hpp>
 
 #include "state.hpp"
@@ -10,19 +11,20 @@
 
 
 StateMenu::StateMenu(std::shared_ptr<StateController> sc) : State(sc) {
-	text.setString("Start playing");
-	text.setCharacterSize(100);
-	text.setPosition(sf::Vector2f(200, 200));
-	text.setFillColor(sf::Color::Red);
+	_title_text.setString("Start playing");
+	_title_text.setCharacterSize(100);
+	_title_text.setPosition(350, -600);
+	_title_text.setFillColor(sf::Color::Red);
 
 	if (!font.loadFromFile("../fonts/arial.ttf"))
 		std::cout << "can't load font" << std::endl;
-	else text.setFont(font);
+	else _title_text.setFont(font);
 }
 
 
 void StateMenu::draw(sf::RenderWindow &w) {
 	play_button.draw(w);
+	w.draw(_title_text);
 }
 
 

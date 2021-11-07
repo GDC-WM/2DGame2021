@@ -77,6 +77,12 @@ namespace glob {
 
 	inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y) * scale; };
 
+	/**
+	 * @param point the point to check
+	 * @param rect_pos center point of the rectangle
+	 * @param rect_size dimensions of the rectangle
+	 * @return whether point lies inside rect
+	 */
 	inline bool collides_point_rect(const vect &point,
 	                                const vect &rect_pos, const vect &rect_size) {
 		return point.x > rect_pos.x - (rect_size.x / 2)
