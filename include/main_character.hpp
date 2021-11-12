@@ -11,6 +11,7 @@ public:
 
 	void draw(sf::RenderWindow &) override;
 
+	void move(const glob::vect &pos);
 
 private:
 	SpriteSheet _sprite_sheet { "../resources/cannon-barrel.png", 64 };

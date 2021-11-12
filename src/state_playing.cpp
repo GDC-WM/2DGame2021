@@ -10,7 +10,8 @@
 #include "entity.hpp"
 
 
-StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
+StatePlaying::StatePlaying(std::shared_ptr<StateController> sc, 
+		std::shared_ptr<MainCharacter> character) : State(sc), _character(character) {
 	_entities = std::make_shared<std::list<std::shared_ptr<Entity>>>();
 	_views = std::make_shared<std::list<std::shared_ptr<View>>>();
 
@@ -35,9 +36,21 @@ void StatePlaying::add_entity(std::shared_ptr<Entity> e) {
 
 void StatePlaying::handle_event(const sf::Event &ev) {
 	switch (ev.type) {
-		// TODO: handle some stuff here (e.g. pause key clicked)
+		case sf::Event::KeyPressed:
+				if (ev.key.code == sf::Keyboard::W){
+					_main_character->move(glob::vect(0.0, 50.0)); // increase y value
+				}
+				else if (ev.key.code == sf::Keyboard::S){
+					_main_character->move(glob::vect(0.0, -50.0)); // decrease y value
+				}
+				else if (ev.key.code == sf::Keyboard::A){
+					_main_character->move(glob::vect(-50.0, 0.0)); // decrease x value
+				}
+				else if (ev.key.code == sf::Keyboard::D){
+					_main_character->move(glob::vect(50.0, 0.0)); // increase x value
+				} 
 		default:
-			_user_view->handle_event(ev); // pass all other events to user view
+			
 	}
 }
 
@@ -46,3 +59,4 @@ void StatePlaying::update() {
 	for (auto view : *_views) view->update(); 
 	for (auto entity : *_entities) entity->update();
 }
+

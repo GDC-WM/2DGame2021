@@ -19,7 +19,8 @@ class StateController;
  */
 class StatePlaying : public State {
 public:
-	StatePlaying(std::shared_ptr<StateController>);
+	StatePlaying(std::shared_ptr<StateController>,
+			std::shared_ptr<MainCharacter> character);
 
 	/**
 	 * @return the list of entities.
@@ -58,6 +59,7 @@ private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
 	std::shared_ptr<UserView> _user_view;
+	std::shared_ptr<MainCharacter> _main_character;
 };
 
 

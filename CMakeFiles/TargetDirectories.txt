@@ -1,0 +1,4 @@
+/home/abatts/Desktop/Game Dev/2DGame2021/CMakeFiles/rebuild_cache.dir
+/home/abatts/Desktop/Game Dev/2DGame2021/CMakeFiles/edit_cache.dir
+/home/abatts/Desktop/Game Dev/2DGame2021/CMakeFiles/main.dir
+/home/abatts/Desktop/Game Dev/2DGame2021/CMakeFiles/2DGame2021_core.dir

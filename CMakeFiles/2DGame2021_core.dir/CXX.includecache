@@ -1,0 +1,168 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/abatts/Desktop/Game Dev/2DGame2021/src/main_character.cpp
+character.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/character.hpp
+main_character.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/main_character.hpp
+sprite_sheet.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/sprite_sheet.hpp
+
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_menu.cpp
+memory
+-
+iostream
+-
+cmath
+-
+SFML/Graphics.hpp
+-
+state.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state.hpp
+state_menu.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_menu.hpp
+state_controller.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_controller.hpp
+state_playing.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_playing.hpp
+button.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/button.hpp
+
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_playing.cpp
+list
+-
+memory
+-
+algorithm
+-
+state.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state.hpp
+state_playing.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_playing.hpp
+state_controller.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/state_controller.hpp
+view.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/view.hpp
+user_view.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/user_view.hpp
+entity.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/entity.hpp
+
+/home/abatts/Desktop/Game Dev/2DGame2021/src/user_view.cpp
+memory
+-
+SFML/Graphics.hpp
+-
+user_view.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/user_view.hpp
+entity.hpp
+/home/abatts/Desktop/Game Dev/2DGame2021/src/entity.hpp
+
+include/button.hpp
+string
+-
+SFML/Graphics.hpp
+-
+entity.hpp
+include/entity.hpp
+glob.hpp
+include/glob.hpp
+
+include/character.hpp
+entity.hpp
+include/entity.hpp
+glob.hpp
+include/glob.hpp
+
+include/entity.hpp
+SFML/Graphics.hpp
+-
+glob.hpp
+include/glob.hpp
+
+include/glob.hpp
+SFML/System/Vector2.hpp
+-
+cmath
+-
+chrono
+-
+
+include/main_character.hpp
+character.hpp
+include/character.hpp
+sprite_sheet.hpp
+include/sprite_sheet.hpp
+
+include/sprite_sheet.hpp
+SFML/Graphics.hpp
+-
+chrono
+-
+cmath
+-
+glob.hpp
+include/glob.hpp
+
+include/state.hpp
+memory
+-
+SFML/Graphics.hpp
+-
+
+include/state_controller.hpp
+memory
+-
+stack
+-
+SFML/Graphics.hpp
+-
+
+include/state_menu.hpp
+memory
+-
+SFML/Graphics.hpp
+-
+state.hpp
+include/state.hpp
+state_controller.hpp
+include/state_controller.hpp
+button.hpp
+include/button.hpp
+
+include/state_playing.hpp
+list
+-
+memory
+-
+SFML/Graphics.hpp
+-
+state.hpp
+include/state.hpp
+view.hpp
+include/view.hpp
+user_view.hpp
+include/user_view.hpp
+
+include/user_view.hpp
+memory
+-
+SFML/Graphics.hpp
+-
+view.hpp
+include/view.hpp
+main_character.hpp
+include/main_character.hpp
+
+include/view.hpp
+list
+-
+memory
+-
+
