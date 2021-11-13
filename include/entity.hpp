@@ -32,7 +32,7 @@ public:
 	 */
 	virtual bool collides(const Entity &) const { return false; };
 
-	virtual void update() { _pos += _velocity * glob::dt; };
+	virtual void update() { /*_pos += _velocity * glob::dt;*/ };
 
 	virtual void draw(sf::RenderWindow &) {};
 
