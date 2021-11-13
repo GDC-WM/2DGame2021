@@ -7,7 +7,6 @@
 
 #include "state.hpp"
 #include "view.hpp"
-#include "user_view.hpp"
 #include "main_character.hpp"
 
 class View;

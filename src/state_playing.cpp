@@ -6,7 +6,6 @@
 #include "state_playing.hpp"
 #include "state_controller.hpp"
 #include "view.hpp"
-#include "user_view.hpp"
 #include "entity.hpp"
 #include <iostream>
 
