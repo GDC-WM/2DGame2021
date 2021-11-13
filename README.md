@@ -8,7 +8,7 @@ main <- StateController <-> State
                             |- StateMenu
                             |- StatePlaying <-------------- Entity
                             |               <- View <-------|
-                            |                  |- AIView  |- Character
+                            |                  |- AIView    |- Character
                             |                               |  |- Enemy
                             |                               |  |- Player
                             |                               |- Wall
