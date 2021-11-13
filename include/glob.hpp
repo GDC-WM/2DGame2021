@@ -59,14 +59,28 @@ namespace glob {
 		/* Equals? */
 		bool operator==(const vect &v) const { return x == v.x && y == v.y; };
 
-		/* Subtract from this vector */
+		/* Add to this vector's magnitude */
+		void operator+=(const float &s) {
+			float angle = this->angle();
+			x += s * std::cos(angle);
+			y += s * std::sin(angle);
+		};
+
+		/* Add a vector to this vector */
 		void operator+=(const vect &v) { x += v.x; y += v.y; };
 
-		/* Subtract from this vector */
-		void operator-=(const vect &v) { x -= v.x; y -= v.y; };
+		/* Subtract from this vector's magnitude */
+		void operator-=(const float &s) { *this += -s; };
 
-		/* Multiply into this vector by a scalar */
-		void operator*=(const float &s) { x *= s; y *= s; };
+		/* Subtract a vector from this vector */
+		void operator-=(const vect &v) { *this += -v; };
+
+		/* Multiply the magnitude by a scalar */
+		void operator*=(const float &s) {
+			float angle = this->angle();
+			x *= s * std::cos(angle);
+			y *= s * std::sin(angle);
+		};
 
 		/* Divide into this vector by a scalar */
 		void operator/=(const float &s) { x /= s; y /= s; };

@@ -8,6 +8,8 @@
 #include "view.hpp"
 #include "user_view.hpp"
 #include "entity.hpp"
+#include "glob.hpp"
+#include "missile.hpp"
 
 
 StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
@@ -23,6 +25,7 @@ StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
 	_user_view = std::make_shared<UserView>(_entities, mc);
 	this->add_entity(mc);
 	_views->emplace_back(_user_view);
+	this->add_entity(std::make_shared<Missile>(glob::vect(300, 300), M_PI));
 }
 
 
