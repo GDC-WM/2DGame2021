@@ -13,6 +13,8 @@ public:
 
 	void draw(sf::RenderWindow &);
 
+	void update(); 
+
 	void move(const glob::vect &moveBy); 
 
 

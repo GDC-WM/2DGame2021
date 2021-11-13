@@ -13,6 +13,29 @@ MainCharacter::MainCharacter(const glob::vect &pos) : Character(pos, { 30, 30 })
 	//_speed = 200;
 }
 
+void MainCharacter::update(){
+	std::cout << "updaate" << std::endl; 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		this->move(glob::vect(0, 50));
+		std::cout << "move up bitch" << std::endl; 
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		this->move(glob::vect(0, -50));
+		std::cout << "move up bitch" << std::endl;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		this->move(glob::vect(-50, 0));
+		std::cout << "move up bitch" << std::endl;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		this->move(glob::vect(50, 0));
+		std::cout << "move up bitch" << std::endl;
+	}
+}
 
 void MainCharacter::draw(sf::RenderWindow &w) {
 	_sprite_sheet.set_pos(_pos);

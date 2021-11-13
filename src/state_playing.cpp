@@ -31,28 +31,6 @@ void StatePlaying::add_entity(std::shared_ptr<Entity> e)
 
 void StatePlaying::handle_event(const sf::Event &ev)
 {
-	switch (ev.type)
-	{
-	case sf::Event::KeyPressed:
-		if (ev.key.code == sf::Keyboard::W)
-		{
-			_main_character->move(glob::vect(0.0, 50.0)); // increase y value
-		}
-		else if (ev.key.code == sf::Keyboard::S)
-		{
-			_main_character->move(glob::vect(0.0, -50.0)); // decrease y value
-		}
-		else if (ev.key.code == sf::Keyboard::A)
-		{
-			_main_character->move(glob::vect(-50.0, 0.0)); // decrease x value
-		}
-		else if (ev.key.code == sf::Keyboard::D)
-		{
-			_main_character->move(glob::vect(50.0, 0.0)); // increase x value
-		}
-	default:
-		break;
-	}
 }
 
 void StatePlaying::draw(sf::RenderWindow &w)
