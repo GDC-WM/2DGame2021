@@ -1,18 +1,17 @@
 #ifndef STATE_PLAYING_HPP
 #define STATE_PLAYING_HPP
 
-#include <list>
-#include <memory>
-#include <SFML/Graphics.hpp>
-
+#include "main_character.hpp"
 #include "state.hpp"
 #include "view.hpp"
-#include "main_character.hpp"
+
+#include <SFML/Graphics.hpp>
+#include <list>
+#include <memory>
 
 class View;
 class Entity;
 class StateController;
-
 
 /*
  * A state of the game
@@ -40,24 +39,22 @@ public:
 	void draw(sf::RenderWindow &w) override;
 
 	/*
-	 * Game Controller intercepts event and delegates it to the current State's handle_event 
-	 * function. This means, if the game is in StatePlaying state, Game Controller sends 
-	 * the events to the function below. 
+	 * Game Controller intercepts event and delegates it to the current State's handle_event
+	 * function. This means, if the game is in StatePlaying state, Game Controller sends
+	 * the events to the function below.
 	 */
 	void handle_event(const sf::Event &) override;
 
 	/*
-	 * Game Controller issues the current state to update every frame. This means, 
-	 * if the game is in StatePlaying state, the function below gets called every 
+	 * Game Controller issues the current state to update every frame. This means,
+	 * if the game is in StatePlaying state, the function below gets called every
 	 * frame
 	 */
 	void update() override;
-
 
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
 };
-
 
 #endif

@@ -1,3 +1,3 @@
-#include <cmath>
-
 #include "character.hpp"
+
+#include <cmath>

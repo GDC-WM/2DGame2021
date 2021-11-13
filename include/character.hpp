@@ -5,15 +5,12 @@
 #include "glob.hpp"
 
 /**
- * @brief Is an Entity. 
- * 
+ * @brief Is an Entity.
+ *
  */
-class Character : public Entity
-{
+class Character : public Entity {
 public:
-	Character(const glob::vect &pos, const glob::vect &size = {0, 0})
-		: Entity(pos, size){};
-
+	Character(const glob::vect &pos, const glob::vect &size = {0, 0}) : Entity(pos, size){};
 
 	/**
 	 * @param v the vector to set the direction in

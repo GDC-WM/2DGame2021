@@ -5,7 +5,7 @@
 #include "sprite_sheet.hpp"
 
 /**
- * @brief Is a Character 
+ * @brief Is a Character
  */
 class MainCharacter : public Character {
 public:
@@ -13,15 +13,13 @@ public:
 
 	void draw(sf::RenderWindow &);
 
-	void update(); 
+	void update();
 
-	void move(const glob::vect &moveBy); 
-
+	void move(const glob::vect &moveBy);
 
 private:
-	SpriteSheet _sprite_sheet { "../resources/cannon-barrel.png", 64 };
-	Loop _walking { 0, 18, 40 };
+	SpriteSheet _sprite_sheet{"../resources/cannon-barrel.png", 64};
+	Loop _walking{0, 18, 40};
 };
-
 
 #endif
