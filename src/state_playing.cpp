@@ -16,7 +16,7 @@ StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc)
 
 	// add main character
 	_main_character = std::make_shared<MainCharacter>(glob::vect(100, 100));
-	_main_character->set_direction(1);
+	//_main_character->set_direction(1);
 	this->add_entity(_main_character);
 }
 

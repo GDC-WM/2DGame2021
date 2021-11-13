@@ -5,8 +5,8 @@
 #include <cmath>
 #include <chrono>
 
-
-namespace glob {
+namespace glob
+{
 	/* physics update time in ms */
 	inline extern const double dt = 1.0 / 60.0;
 
@@ -14,8 +14,9 @@ namespace glob {
 	inline extern const float scale = 1; // TODO: settle in on a scale factor
 
 	/* Geometric vector */
-	struct vect {
-		vect(const float &x, const float &y) : x(x), y(y) {};
+	struct vect
+	{
+		vect(const float &x, const float &y) : x(x), y(y){};
 
 		/* Magnitude */
 		float length() { return std::sqrt(x * x + y * y); };
@@ -28,46 +29,81 @@ namespace glob {
 
 		/* Add */
 		vect operator+(const vect &v) const { return vect(x + v.x,
-		                                                  y + v.y); };
+														  y + v.y); };
 
 		/* Subtract */
 		vect operator-(const vect &v) const { return vect(x - v.x,
-		                                                  y - v.y); };
+														  y - v.y); };
 
 		/* Multiply by a scalar */
 		vect operator*(const float &s) const { return vect(x * s,
-		                                                   y * s); };
+														   y * s); };
 
 		/* Divide by a scalar */
 		vect operator/(const float &s) const { return vect(x / s,
-		                                                   y / s); };
+														   y / s); };
 
 		/* Dot product */
-		float operator*(const vect &v) const { return x * v.x
-		                                            + y * v.y; };
+		float operator*(const vect &v) const { return x * v.x + y * v.y; };
 
 		/* Equals? */
 		bool operator==(const vect &v) const { return x == v.x && y == v.y; };
 
 		/* Subtract from this vector */
-		void operator+=(const vect &v) { x += v.x; y += v.y; };
+		void operator+=(const vect &v)
+		{
+			x += v.x;
+			y += v.y;
+		};
 
 		/* Subtract from this vector */
-		void operator-=(const vect &v) { x -= v.x; y -= v.y; };
+		void operator-=(const vect &v)
+		{
+			x -= v.x;
+			y -= v.y;
+		};
 
 		/* Multiply into this vector by a scalar */
-		void operator*=(const float &s) { x *= s; y *= s; };
+		void operator*=(const float &s)
+		{
+			x *= s;
+			y *= s;
+		};
+
+		/* Entry-wise multiply into this vector by another vector */
+		void operator*=(const vect &v)
+		{
+			x *= v.x;
+			y *= v.y;
+		}
 
 		/* Divide into this vector by a scalar */
-		void operator/=(const float &s) { x /= s; y /= s; };
+		void operator/=(const float &s)
+		{
+			x /= s;
+			y /= s;
+		};
 
 		float x, y;
 	};
 
 	/* Multiply by a scalar */
-	inline vect operator*(const float &s, const vect &v) {
+	inline vect operator*(const float &s, const vect &v)
+	{
 		return vect(v.x * s, v.y * s);
 	};
+
+	inline vect zeroVector = vect(0, 0);
+
+	/**
+ 	 * Convert vector into a unit vector
+ 	*/
+	inline vect normalize(const vect &v)
+	{
+		if(v == zeroVector) return v; 
+		float magnitude = sqrt(v.x * v.x + v.y * v.y);
+		return vect(v.x / magnitude, v.y / magnitude);
+	}
 
 	/**
 	 * Convert vectors. Flips Y axis and applies scale factor
@@ -84,13 +120,10 @@ namespace glob {
 	 * @return whether point lies inside rect
 	 */
 	inline bool collides_point_rect(const vect &point,
-	                                const vect &rect_pos, const vect &rect_size) {
-		return point.x > rect_pos.x - (rect_size.x / 2)
-		    && point.y > rect_pos.y - (rect_size.y / 2)
-		    && point.x < rect_pos.x + (rect_size.x / 2)
-		    && point.y < rect_pos.y + (rect_size.y / 2);
+									const vect &rect_pos, const vect &rect_size)
+	{
+		return point.x > rect_pos.x - (rect_size.x / 2) && point.y > rect_pos.y - (rect_size.y / 2) && point.x < rect_pos.x + (rect_size.x / 2) && point.y < rect_pos.y + (rect_size.y / 2);
 	}
 }
-
 
 #endif
