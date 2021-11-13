@@ -57,7 +57,6 @@ public:
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
-	std::shared_ptr<MainCharacter> _main_character;
 };
 
 

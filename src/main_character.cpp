@@ -43,8 +43,3 @@ void MainCharacter::draw(sf::RenderWindow &w)
 	_sprite_sheet.set_pos(_pos);
 	w.draw(_sprite_sheet.get_sprite());
 }
-
-void MainCharacter::move(const glob::vect &move_by)
-{
-	_pos += move_by;
-}

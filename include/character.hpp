@@ -18,7 +18,7 @@ public:
 	/**
 	 * @param v the vector to set the direction in
 	 */
-	void set_direction(const glob::vect &v);
+	void set_direction(const glob::vect &v){};
 
 protected:
 	float _speed; // speed of movement of the entity
