@@ -1,2 +1,0 @@
-/usr/bin/ar qc lib2DGame2021_core.a  CMakeFiles/2DGame2021_core.dir/src/button.cpp.o CMakeFiles/2DGame2021_core.dir/src/character.cpp.o CMakeFiles/2DGame2021_core.dir/src/keyboard_control.cpp.o CMakeFiles/2DGame2021_core.dir/src/main_character.cpp.o CMakeFiles/2DGame2021_core.dir/src/sprite_sheet.cpp.o CMakeFiles/2DGame2021_core.dir/src/state_controller.cpp.o CMakeFiles/2DGame2021_core.dir/src/state_menu.cpp.o CMakeFiles/2DGame2021_core.dir/src/state_playing.cpp.o CMakeFiles/2DGame2021_core.dir/src/user_view.cpp.o
-/usr/bin/ranlib lib2DGame2021_core.a
