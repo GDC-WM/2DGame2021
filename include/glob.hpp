@@ -13,6 +13,9 @@ namespace glob {
 	/* scale of drawing */
 	inline extern const float scale = 1; // TODO: settle in on a scale factor
 
+	/* rotational direction */
+	enum class Rot { clockwise, counterclockwise, none };
+
 	/* Geometric vector */
 	struct vect {
 		vect(const float &x, const float &y) : x(x), y(y) {};
@@ -22,6 +25,13 @@ namespace glob {
 
 		/* Angle */
 		float angle() { return std::atan2(y, x); };
+
+		/* Set angle */
+		void set_angle(const float &a) {
+			float len = this->length();
+			x = len * std::cos(a);
+			y = len * std::sin(a);
+		};
 
 		/* Negate */
 		vect operator-() const { return vect(-x, -y); };
