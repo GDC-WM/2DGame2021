@@ -8,6 +8,7 @@
 #include "state.hpp"
 #include "view.hpp"
 #include "user_view.hpp"
+#include "main_character.hpp"
 
 class View;
 class Entity;
@@ -19,8 +20,7 @@ class StateController;
  */
 class StatePlaying : public State {
 public:
-	StatePlaying(std::shared_ptr<StateController>,
-			std::shared_ptr<MainCharacter> character);
+	StatePlaying(std::shared_ptr<StateController>);
 
 	/**
 	 * @return the list of entities.
@@ -38,7 +38,7 @@ public:
 	// TODO: maybe remove this method
 	void add_view(std::shared_ptr<View> v) { _views->push_back(v); };
 
-	void draw(sf::RenderWindow &w) override { _user_view->draw(w); };
+	void draw(sf::RenderWindow &w) override;
 
 	/*
 	 * Game Controller intercepts event and delegates it to the current State's handle_event 
@@ -58,7 +58,6 @@ public:
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
-	std::shared_ptr<UserView> _user_view;
 	std::shared_ptr<MainCharacter> _main_character;
 };
 

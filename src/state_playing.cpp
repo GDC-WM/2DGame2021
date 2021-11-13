@@ -8,55 +8,64 @@
 #include "view.hpp"
 #include "user_view.hpp"
 #include "entity.hpp"
+#include <iostream>
 
-
-StatePlaying::StatePlaying(std::shared_ptr<StateController> sc, 
-		std::shared_ptr<MainCharacter> character) : State(sc), _character(character) {
+StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc)
+{
 	_entities = std::make_shared<std::list<std::shared_ptr<Entity>>>();
 	_views = std::make_shared<std::list<std::shared_ptr<View>>>();
 
-	// add user
-	//TODO: this is maybe not the best way to do this long term, but it is the
-	// simplest solution at the moment that gives StatePlaying direct access
-	// to UserView so it can relay events
-	std::shared_ptr<MainCharacter> mc = std::make_shared<MainCharacter>(glob::vect(100,100));
-	mc->set_direction(1);
-	_user_view = std::make_shared<UserView>(_entities, mc);
-	this->add_entity(mc);
-	_views->emplace_back(_user_view);
+	// add main character
+	_main_character = std::make_shared<MainCharacter>(glob::vect(100, 100));
+	_main_character->set_direction(1);
+	this->add_entity(_main_character);
 }
 
-
-void StatePlaying::add_entity(std::shared_ptr<Entity> e) {
+void StatePlaying::add_entity(std::shared_ptr<Entity> e)
+{
 	// insert according to entity priority
 	_entities->insert(std::lower_bound(_entities->begin(), _entities->end(), e,
-			[](auto a1, auto a2) -> bool { return a1->priority < a2->priority; }), e);
+									   [](auto a1, auto a2) -> bool
+									   { return a1->priority < a2->priority; }),
+					  e);
 };
 
-
-void StatePlaying::handle_event(const sf::Event &ev) {
-	switch (ev.type) {
-		case sf::Event::KeyPressed:
-				if (ev.key.code == sf::Keyboard::W){
-					_main_character->move(glob::vect(0.0, 50.0)); // increase y value
-				}
-				else if (ev.key.code == sf::Keyboard::S){
-					_main_character->move(glob::vect(0.0, -50.0)); // decrease y value
-				}
-				else if (ev.key.code == sf::Keyboard::A){
-					_main_character->move(glob::vect(-50.0, 0.0)); // decrease x value
-				}
-				else if (ev.key.code == sf::Keyboard::D){
-					_main_character->move(glob::vect(50.0, 0.0)); // increase x value
-				} 
-		default:
-			
+void StatePlaying::handle_event(const sf::Event &ev)
+{
+	switch (ev.type)
+	{
+	case sf::Event::KeyPressed:
+		if (ev.key.code == sf::Keyboard::W)
+		{
+			_main_character->move(glob::vect(0.0, 50.0)); // increase y value
+		}
+		else if (ev.key.code == sf::Keyboard::S)
+		{
+			_main_character->move(glob::vect(0.0, -50.0)); // decrease y value
+		}
+		else if (ev.key.code == sf::Keyboard::A)
+		{
+			_main_character->move(glob::vect(-50.0, 0.0)); // decrease x value
+		}
+		else if (ev.key.code == sf::Keyboard::D)
+		{
+			_main_character->move(glob::vect(50.0, 0.0)); // increase x value
+		}
+	default:
+		break;
 	}
 }
 
-
-void StatePlaying::update() {
-	for (auto view : *_views) view->update(); 
-	for (auto entity : *_entities) entity->update();
+void StatePlaying::draw(sf::RenderWindow &w)
+{
+	for (auto entity : *_entities)
+		entity->draw(w);
 }
 
+void StatePlaying::update()
+{
+	for (auto view : *_views)
+		view->update();
+	for (auto entity : *_entities)
+		entity->update();
+}
