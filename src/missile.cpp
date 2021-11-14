@@ -2,14 +2,22 @@
 
 #include "entity.hpp"
 #include "glob.hpp"
+#include "sprite_sheet.hpp"
+
+#include <chrono>
 
 Missile::Missile(const glob::vect &pos, const float &orientation) : Entity(pos, {20, 5}) {
 	_orientation = orientation;
 	_sprite_sheet.set_loop(_cruising);
-	_velocity = {10, 0};
+	_velocity = {10, 0}; // m/s
+
+	_start_time = std::chrono::steady_clock::now();
 };
 
 void Missile::update() {
+	// check fuse
+	if (std::chrono::steady_clock::now() - _start_time > this->fuse) /* TODO: kill itself here */;
+
 	_velocity += this->acceleration;
 	switch (_steer_dir) {
 	case glob::Rot::clockwise:

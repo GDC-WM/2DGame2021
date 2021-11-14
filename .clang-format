@@ -9,7 +9,7 @@ AccessModifierOffset: -4
 # AlignConsecutiveDeclarations: None
 # AlignEscapedNewlines: Right
 AlignOperands:   AlignAfterOperator
-# AlignTrailingComments: true
+AlignTrailingComments: true
 # AllowAllArgumentsOnNextLine: true
 # AllowAllConstructorInitializersOnNextLine: true
 # AllowAllParametersOfDeclarationOnNextLine: true
