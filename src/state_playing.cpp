@@ -2,6 +2,7 @@
 #include <memory>
 #include <algorithm>
 
+#include "missile_ai.hpp"
 #include "state.hpp"
 #include "state_playing.hpp"
 #include "state_controller.hpp"
@@ -25,7 +26,9 @@ StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
 	_user_view = std::make_shared<UserView>(_entities, mc);
 	this->add_entity(mc);
 	_views->emplace_back(_user_view);
-	this->add_entity(std::make_shared<Missile>(glob::vect(300, 300), M_PI));
+	std::shared_ptr<Missile> missile = std::make_shared<Missile>(glob::vect(700, 200), M_PI);
+	this->add_entity(missile);
+	this->add_view(std::make_shared<MissileAI>(_entities, missile, mc));
 }
 
 

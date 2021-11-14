@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 	game->states().push(std::make_shared<StateMenu>(game));
 
 	// game update loop
-	auto loop_dt = std::chrono::nanoseconds(long(std::round(glob::dt * 10E9)));
+	auto loop_dt = std::chrono::nanoseconds(16666667); // ~60th of a second
 	using clock = std::chrono::steady_clock;
 	clock::time_point next_update = clock::now();
 	while (game->running()) {

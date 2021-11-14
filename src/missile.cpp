@@ -6,18 +6,17 @@
 Missile::Missile(const glob::vect &pos, const float &orientation) : Entity(pos, {20, 5}) {
 	_orientation = orientation;
 	_sprite_sheet.set_loop(_cruising);
-	_velocity = {200, 0};
-	_steer_dir = glob::Rot::clockwise;
+	_velocity = {10, 0};
 };
 
 void Missile::update() {
 	_velocity += this->acceleration;
 	switch (_steer_dir) {
 	case glob::Rot::clockwise:
-		_orientation = _velocity.angle() - this->steer_speed;
+		_orientation -= this->steer_speed * glob::dt;
 		break;
 	case glob::Rot::counterclockwise:
-		_orientation = _velocity.angle() + this->steer_speed;
+		_orientation += this->steer_speed * glob::dt;
 		break;
 	default:
 		break;

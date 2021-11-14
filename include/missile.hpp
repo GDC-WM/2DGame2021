@@ -18,8 +18,8 @@ public:
 
 	void draw(sf::RenderWindow &) override;
 
-	const float acceleration = 200;
-	const float steer_speed = 0.3; // radians per second
+	static constexpr float acceleration = 5;
+	static constexpr float steer_speed = 1.2; // radians per second
 
 private:
 	glob::Rot _steer_dir = glob::Rot::none;
