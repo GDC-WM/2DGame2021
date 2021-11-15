@@ -1,5 +1,5 @@
-#ifndef MAIN_CHARACTER_HPP
-#define MAIN_CHARACTER_HPP
+#ifndef CEILA_HPP
+#define CEILA_HPP
 
 #include "character.hpp"
 #include "sprite_sheet.hpp"
@@ -7,9 +7,9 @@
 /**
  * @brief Is a Character
  */
-class MainCharacter : public Character {
+class Ceila : public Character {
 public:
-	MainCharacter(const glob::vect &pos);
+	Ceila(const glob::vect &pos);
 
 	void draw(sf::RenderWindow &);
 
