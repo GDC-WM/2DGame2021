@@ -22,5 +22,5 @@ void CeilaView::handle_event(const sf::Event &e) {
 	glob::vect curPos = _ceila->get_pos();
 	// Must normalize so the distance the actor travels is equalled to the magnitude of speed
 	glob::vect velocity = glob::normalize(dirVectors) * _ceila->get_speed();
-	_ceila->set_pos(curPos + velocity * glob::dt);
+	_ceila->set_velocity(velocity);
 }

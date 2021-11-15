@@ -1,10 +1,10 @@
 #include "ceila.hpp"
+
 #include "character.hpp"
 #include "sprite_sheet.hpp"
 
 #include <iostream>
 #include <math.h>
-
 
 /**
  * @brief Construct a new Main Character:: Main Character object
@@ -18,22 +18,25 @@ Ceila::Ceila(const glob::vect &pos) : Character(pos, {30, 30}) {
 
 void Ceila::update() {
 	glob::vect unitDirVectors(0, 0);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
+	    || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		unitDirVectors += glob::vect(0, 1);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		unitDirVectors += glob::vect(0, -1);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
+	    || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		unitDirVectors += glob::vect(-1, 0);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
+	    || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		unitDirVectors += glob::vect(0, -1);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
+	    || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		unitDirVectors += glob::vect(1, 0);
 	}
-	_velocity = glob::normalize(unitDirVectors) * _speed;
-	_pos += _velocity * glob::dt;
+	this->set_velocity(glob::normalize(unitDirVectors) * _speed);
+	Entity::update();
 }
-
 void Ceila::draw(sf::RenderWindow &w) {
 	_sprite_sheet.set_pos(_pos);
 	w.draw(_sprite_sheet.get_sprite());
