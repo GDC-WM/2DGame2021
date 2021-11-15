@@ -20,6 +20,14 @@ public:
 
 	const glob::vect &get_size() { return _size; };
 
+	const glob::vect &get_velocity() { return _velocity; };
+
+	const void set_pos(const glob::vect &v) { _pos = v; }
+
+	const void set_size(const glob::vect &v) { _size = v; }
+
+	const void set_velocity(const glob::vect &v) { _velocity = v; }
+
 	/**
 	 * @return true if the point falls within this entity
 	 */

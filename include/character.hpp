@@ -17,6 +17,10 @@ public:
 	 */
 	void set_direction(const glob::vect &v){};
 
+	void set_speed(float v) { _speed = v; };
+
+	const float get_speed() const { return _speed; }
+
 protected:
 	float _speed; // speed of movement of the entity
 };

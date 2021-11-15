@@ -1,7 +1,8 @@
 #ifndef STATE_PLAYING_HPP
 #define STATE_PLAYING_HPP
 
-#include "main_character.hpp"
+#include "ceila.hpp"
+#include "ceila_view.hpp"
 #include "state.hpp"
 #include "view.hpp"
 
@@ -55,6 +56,7 @@ public:
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
+	std::shared_ptr<CeilaView> _ceila_view;
 };
 
 #endif
