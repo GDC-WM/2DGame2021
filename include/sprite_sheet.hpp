@@ -1,26 +1,21 @@
 #ifndef SPRITE_SHEET_HPP
 #define SPRITE_SHEET_HPP
 
+#include "glob.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <chrono>
 #include <cmath>
 
-#include "glob.hpp"
-
-
 struct Loop {
 	int start, frames, frame_time;
 
 	bool operator==(Loop l) {
-		return l.start == start
-		    && l.frames == frames
-		    && l.frame_time == frame_time;
+		return l.start == start && l.frames == frames && l.frame_time == frame_time;
 	}
 
 	bool operator!=(Loop l) { return !(*this == l); }
 };
-
 
 /**
  * Facilitates creating an animation from a spritesheet.
@@ -35,9 +30,9 @@ public:
 
 	void set_pos(const glob::vect &v) { _sprite.setPosition(glob::convert_vect(v)); };
 
-	void set_pos(const float &x, const float &y) { this->set_pos({ x, y }); };
+	void set_pos(const float &x, const float &y) { this->set_pos({x, y}); };
 
-	void set_orientation(const float &angle) { _sprite.setRotation(angle * -180 / M_PI); };
+	void set_orientation(const float &angle) { _sprite.setRotation(angle * -180 / glob::M_PI); };
 
 	/**
 	 * First updates the sprite to the proper frame, then returns
@@ -66,7 +61,7 @@ public:
 	 * @param frame_time The time between each frame of the animation
 	 */
 	void set_loop(const int &start, const int &frames, const int &frame_time) {
-		_loop = { start, frames, frame_time };
+		_loop = {start, frames, frame_time};
 	};
 
 	/**
@@ -89,7 +84,7 @@ public:
 	 * @param mirrored Set whether to mirror the sprite
 	 */
 	void mirror(const bool &mirrored) {
-		_sprite.setScale((mirrored? -1 : 1) * glob::scale, glob::scale);
+		_sprite.setScale((mirrored ? -1 : 1) * glob::scale, glob::scale);
 	};
 
 	/**
@@ -102,15 +97,14 @@ public:
 	 */
 	void restart() { _start_time = std::chrono::steady_clock::now(); };
 
-
 private:
 	std::chrono::steady_clock::time_point _start_time;
 	sf::Texture _texture;
 	sf::Sprite _sprite;
 	sf::IntRect _sprite_rect; // pixels
 	sf::Vector2i _sheet_size; // rows/columns
-	Loop _loop { 0, 0, 0 };
-	Loop _one_shot { 0, 0, 0 };
+	Loop _loop{0, 0, 0};
+	Loop _one_shot{0, 0, 0};
 
 	/**
 	 * Set the frame of the animation
@@ -119,6 +113,5 @@ private:
 	 */
 	void _set_frame(const int &frame);
 };
-
 
 #endif

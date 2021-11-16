@@ -15,6 +15,8 @@ inline extern const float scale = 1; // TODO: settle in on a scale factor
 /* rotational direction */
 enum class Rot { clockwise, counterclockwise, none };
 
+inline extern const double M_PI = 3.14159265358979323846;
+
 /* Geometric vector */
 struct vect {
 	vect(const float &x, const float &y) : x(x), y(y){};
