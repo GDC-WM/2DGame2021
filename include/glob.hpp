@@ -20,10 +20,10 @@ struct vect {
 	vect(const float &x, const float &y) : x(x), y(y){};
 
 	/* Magnitude */
-	float length() { return std::sqrt(x * x + y * y); };
+	float length() const { return std::sqrt(x * x + y * y); };
 
 	/* Angle */
-	float angle() { return std::atan2(y, x); };
+	float angle() const { return std::atan2(y, x); };
 
 	/* Set angle */
 	void set_angle(const float &a) {
@@ -96,7 +96,7 @@ inline vect operator*(const float &s, const vect &v) { return vect(v.x * s, v.y 
  */
 inline vect normalize(const vect &v) {
 	if (v == vect(0, 0)) return v;
-	float magnitude = sqrt(v.x * v.x + v.y * v.y);
+	float magnitude = v.length();
 	return vect(v.x / magnitude, v.y / magnitude);
 }
 
