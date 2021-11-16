@@ -30,7 +30,7 @@ void StatePlaying::add_entity(std::shared_ptr<Entity> e) {
 			e);
 };
 
-void StatePlaying::handle_event(const sf::Event &ev) { _ceila_view->handle_event(ev); }
+void StatePlaying::handle_event(const sf::Event &ev) {}
 
 void StatePlaying::draw(sf::RenderWindow &w) {
 	for (auto entity : *_entities) entity->draw(w);

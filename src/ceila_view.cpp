@@ -5,22 +5,19 @@ void CeilaView::draw(sf::RenderWindow &w) {
 	for (auto entity : *_entities) entity->draw(w);
 }
 
-void CeilaView::handle_event(const sf::Event &e) {
-	glob::vect dirVectors(0, 0);
+void CeilaView::update() {
+	glob::vect dir_vectors(0, 0);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-		dirVectors += glob::vect(0, 1);
+		dir_vectors += glob::vect(0, 1);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		dirVectors += glob::vect(0, -1);
+		dir_vectors += glob::vect(0, -1);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		dirVectors += glob::vect(-1, 0);
+		dir_vectors += glob::vect(-1, 0);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		dirVectors += glob::vect(1, 0);
+		dir_vectors += glob::vect(1, 0);
 	}
-	glob::vect curPos = _ceila->get_pos();
-	// Must normalize so the distance the actor travels is equalled to the magnitude of speed
-	glob::vect velocity = glob::normalize(dirVectors) * _ceila->get_speed();
-	_ceila->set_velocity(velocity);
+	_ceila->set_direction(dir_vectors);
 }

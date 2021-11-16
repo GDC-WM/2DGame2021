@@ -18,14 +18,7 @@ public:
 	 */
 	void draw(sf::RenderWindow &);
 
-	/**
-	 * Respond to event
-	 *
-	 * UserView is special. StatePlaying.handle_event is delegated to this view.
-	 */
-	void handle_event(const sf::Event &);
-
-	void update() override{};
+	void update() override;
 
 private:
 	std::shared_ptr<Ceila> _ceila;
