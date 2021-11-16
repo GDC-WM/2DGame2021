@@ -92,6 +92,15 @@ struct vect {
 inline vect operator*(const float &s, const vect &v) { return vect(v.x * s, v.y * s); };
 
 /**
+ * Convert vector into a unit vector
+ */
+inline vect normalize(const vect &v) {
+	if (v == vect(0, 0)) return v;
+	float magnitude = sqrt(v.x * v.x + v.y * v.y);
+	return vect(v.x / magnitude, v.y / magnitude);
+}
+
+/**
  * Convert vectors. Flips Y axis and applies scale factor
  */
 inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y) / scale; };
