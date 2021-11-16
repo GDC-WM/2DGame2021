@@ -1,6 +1,11 @@
 #include "state_playing.hpp"
 
+#include "ceila.hpp"
+#include "ceila_view.hpp"
 #include "entity.hpp"
+#include "glob.hpp"
+#include "missile.hpp"
+#include "missile_ai.hpp"
 #include "state.hpp"
 #include "state_controller.hpp"
 #include "view.hpp"
@@ -20,6 +25,11 @@ StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
 	// add ceila view to list of views
 	_ceila_view = std::make_shared<CeilaView>(_entities, ceila);
 	_views->emplace_back(_ceila_view);
+
+	// add a missile
+	std::shared_ptr<Missile> missile = std::make_shared<Missile>(glob::vect(700, 200), M_PI);
+	this->add_entity(missile);
+	this->add_view(std::make_shared<MissileAI>(_entities, missile, ceila));
 }
 
 void StatePlaying::add_entity(std::shared_ptr<Entity> e) {

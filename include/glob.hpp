@@ -7,20 +7,30 @@
 
 namespace glob {
 /* physics update time in ms */
-inline extern const double dt = 1.0 / 60.0;
+inline extern const double dt = 1.f / 60.f;
 
 /* scale of drawing */
 inline extern const float scale = 1; // TODO: settle in on a scale factor
+
+/* rotational direction */
+enum class Rot { clockwise, counterclockwise, none };
 
 /* Geometric vector */
 struct vect {
 	vect(const float &x, const float &y) : x(x), y(y){};
 
 	/* Magnitude */
-	float length() { return std::sqrt(x * x + y * y); };
+	float length() const { return std::sqrt(x * x + y * y); };
 
 	/* Angle */
-	float angle() { return std::atan2(y, x); };
+	float angle() const { return std::atan2(y, x); };
+
+	/* Set angle */
+	void set_angle(const float &a) {
+		float len = this->length();
+		x = len * std::cos(a);
+		y = len * std::sin(a);
+	};
 
 	/* Negate */
 	vect operator-() const { return vect(-x, -y); };
@@ -43,29 +53,31 @@ struct vect {
 	/* Equals? */
 	bool operator==(const vect &v) const { return x == v.x && y == v.y; };
 
-	/* Subtract from this vector */
+	/* Add to this vector's magnitude */
+	void operator+=(const float &s) {
+		float angle = this->angle();
+		x += s * std::cos(angle);
+		y += s * std::sin(angle);
+	};
+
+	/* Add a vector to this vector */
 	void operator+=(const vect &v) {
 		x += v.x;
 		y += v.y;
 	};
 
-	/* Subtract from this vector */
-	void operator-=(const vect &v) {
-		x -= v.x;
-		y -= v.y;
-	};
+	/* Subtract from this vector's magnitude */
+	void operator-=(const float &s) { *this += -s; };
 
-	/* Multiply into this vector by a scalar */
+	/* Subtract a vector from this vector */
+	void operator-=(const vect &v) { *this += -v; };
+
+	/* Multiply the magnitude by a scalar */
 	void operator*=(const float &s) {
-		x *= s;
-		y *= s;
+		float angle = this->angle();
+		x *= s * std::cos(angle);
+		y *= s * std::sin(angle);
 	};
-
-	/* Entry-wise multiply into this vector by another vector */
-	void operator*=(const vect &v) {
-		x *= v.x;
-		y *= v.y;
-	}
 
 	/* Divide into this vector by a scalar */
 	void operator/=(const float &s) {
@@ -79,14 +91,12 @@ struct vect {
 /* Multiply by a scalar */
 inline vect operator*(const float &s, const vect &v) { return vect(v.x * s, v.y * s); };
 
-inline vect zeroVector = vect(0, 0);
-
 /**
  * Convert vector into a unit vector
  */
 inline vect normalize(const vect &v) {
-	if (v == zeroVector) return v;
-	float magnitude = sqrt(v.x * v.x + v.y * v.y);
+	if (v == vect(0, 0)) return v;
+	float magnitude = v.length();
 	return vect(v.x / magnitude, v.y / magnitude);
 }
 

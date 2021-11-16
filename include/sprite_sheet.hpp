@@ -37,6 +37,8 @@ public:
 
 	void set_pos(const float &x, const float &y) { this->set_pos({ x, y }); };
 
+	void set_orientation(const float &angle) { _sprite.setRotation(angle * -180 / M_PI); };
+
 	/**
 	 * First updates the sprite to the proper frame, then returns
 	 *

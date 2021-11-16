@@ -16,9 +16,11 @@ public:
 	 */
 	Entity(const glob::vect &pos, const glob::vect &size = {0, 0}) : _pos(pos), _size(size){};
 
-	const glob::vect &get_pos() { return _pos; };
+	const glob::vect &get_pos() const { return _pos; };
 
-	const glob::vect &get_size() { return _size; };
+	const glob::vect &get_size() const { return _size; };
+
+	const float &get_orientation() const { return _orientation; };
 
 	const glob::vect &get_velocity() { return _velocity; };
 
@@ -46,6 +48,8 @@ public:
 
 protected:
 	glob::vect _pos, _size, _velocity{0, 0};
+
+	float _orientation = 0;
 };
 
 #endif
