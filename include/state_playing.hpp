@@ -1,18 +1,18 @@
 #ifndef STATE_PLAYING_HPP
 #define STATE_PLAYING_HPP
 
-#include <list>
-#include <memory>
-#include <SFML/Graphics.hpp>
-
+#include "ceila.hpp"
+#include "ceila_view.hpp"
 #include "state.hpp"
 #include "view.hpp"
-#include "user_view.hpp"
+
+#include <SFML/Graphics.hpp>
+#include <list>
+#include <memory>
 
 class View;
 class Entity;
 class StateController;
-
 
 /*
  * A state of the game
@@ -37,28 +37,26 @@ public:
 	// TODO: maybe remove this method
 	void add_view(std::shared_ptr<View> v) { _views->push_back(v); };
 
-	void draw(sf::RenderWindow &w) override { _user_view->draw(w); };
+	void draw(sf::RenderWindow &w) override;
 
 	/*
-	 * Game Controller intercepts event and delegates it to the current State's handle_event 
-	 * function. This means, if the game is in StatePlaying state, Game Controller sends 
-	 * the events to the function below. 
+	 * Game Controller intercepts event and delegates it to the current State's handle_event
+	 * function. This means, if the game is in StatePlaying state, Game Controller sends
+	 * the events to the function below.
 	 */
 	void handle_event(const sf::Event &) override;
 
 	/*
-	 * Game Controller issues the current state to update every frame. This means, 
-	 * if the game is in StatePlaying state, the function below gets called every 
+	 * Game Controller issues the current state to update every frame. This means,
+	 * if the game is in StatePlaying state, the function below gets called every
 	 * frame
 	 */
 	void update() override;
 
-
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
-	std::shared_ptr<UserView> _user_view;
+	std::shared_ptr<CeilaView> _ceila_view;
 };
-
 
 #endif
