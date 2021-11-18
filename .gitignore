@@ -1,2 +1,7 @@
 Debug
 .vscode
+build
+
+# ignore doxygen generates
+docs/html
+docs/latex

@@ -14,7 +14,7 @@ public:
 
 	std::stack<std::shared_ptr<State>> &states() { return _states; };
 
-	const sf::RenderWindow &window() { return *_window; };
+	const sf::RenderWindow &window() { return _window; };
 
 	const bool &running() { return _running; };
 
@@ -27,8 +27,12 @@ public:
 
 private:
 	std::stack<std::shared_ptr<State>> _states;
-	std::unique_ptr<sf::RenderWindow> _window;
 	bool _running = true;
+	sf::RenderWindow _window {
+		sf::VideoMode(1280, 720, 32),
+		"Best game",
+		sf::Style::Titlebar | sf::Style::Close
+	};
 };
 
 #endif
