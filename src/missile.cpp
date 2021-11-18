@@ -22,11 +22,14 @@ void Missile::update() {
 	switch (_steer_dir) {
 	case glob::Rot::clockwise:
 		_orientation -= this->steer_speed * glob::dt;
+		Entity::update();
 		break;
 	case glob::Rot::counterclockwise:
 		_orientation += this->steer_speed * glob::dt;
+		Entity::update();
 		break;
 	default:
+		//this->_pos+= this->_velocity * glob::dt;
 		break;
 	}
 	_velocity.set_angle(_orientation);

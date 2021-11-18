@@ -15,4 +15,6 @@ void MissileAI::update() {
 
 	std::sin(relative_angle) > 0 ? _missile->turn(glob::Rot::counterclockwise)
 	                             : _missile->turn(glob::Rot::clockwise);
+
+	_missile->update();
 }

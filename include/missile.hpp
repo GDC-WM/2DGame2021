@@ -20,8 +20,8 @@ public:
 
 	void draw(sf::RenderWindow &) override;
 
-	static constexpr float acceleration = 5;              // m/s^2
-	static constexpr float steer_speed = 1.2;             // rad/s
+	static constexpr float acceleration = 2;              // m/s^2
+	static constexpr float steer_speed = 1;             // rad/s
 	static constexpr auto fuse = std::chrono::seconds(2); // s
 
 private:
