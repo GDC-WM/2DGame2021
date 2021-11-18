@@ -6,6 +6,7 @@
 
 #include "entity.hpp"
 #include "glob.hpp"
+#include "sprite_sheet.hpp"
 
 
 class Button : public Entity {
@@ -26,7 +27,8 @@ public:
 private:
 	sf::Text _text;
 	sf::Font _font;
-	sf::RectangleShape _shape;
+	SpriteSheet _sprite_sheet{"../resources/art/btn_newGame.png", 64};
+	Loop _menubtn{0,0,0};
 };
 
 

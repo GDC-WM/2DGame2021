@@ -17,13 +17,19 @@ Button::Button(const glob::vect &pos, const std::string &text) : Entity(pos) {
 	else
 		_text.setFont(_font);
 
-	_shape.setOrigin(glob::convert_vect(_size / 2));
+/* 	_shape.setOrigin(glob::convert_vect(_size / 2));
 	_shape.setPosition(glob::convert_vect(pos));
 	_shape.setSize(glob::convert_vect(_size));
-	_shape.setFillColor(sf::Color::White);
+	_shape.setFillColor(sf::Color::White); 
+*/
+	_sprite_sheet.set_loop(_menubtn);
+	
+
 }
 
 void Button::draw(sf::RenderWindow &w) {
-	w.draw(_shape);
+	// w.draw(_shape);
 	w.draw(_text);
+	_sprite_sheet.set_pos(_pos);
+	w.draw(_sprite_sheet.get_sprite());
 }
