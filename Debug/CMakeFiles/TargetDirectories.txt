@@ -1,0 +1,4 @@
+C:/Users/prick/2DGame2021/Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/prick/2DGame2021/Debug/CMakeFiles/edit_cache.dir
+C:/Users/prick/2DGame2021/Debug/CMakeFiles/main.dir
+C:/Users/prick/2DGame2021/Debug/CMakeFiles/2DGame2021_core.dir

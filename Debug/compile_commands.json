@@ -1,0 +1,57 @@
+[
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\main.dir\\bin\\main.cpp.obj -c C:\\Users\\prick\\2DGame2021\\bin\\main.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\bin\\main.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\button.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\button.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\button.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\ceila.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\ceila.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\ceila.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\ceila_view.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\ceila_view.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\ceila_view.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\character.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\character.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\character.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\missile.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\missile.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\missile.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\missile_ai.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\missile_ai.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\missile_ai.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\sprite_sheet.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\sprite_sheet.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\sprite_sheet.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\state_controller.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\state_controller.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\state_controller.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\state_menu.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\state_menu.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\state_menu.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\state_playing.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\state_playing.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\state_playing.cpp"
+}
+]
