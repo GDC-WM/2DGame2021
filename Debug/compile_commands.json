@@ -6,6 +6,11 @@
 },
 {
   "directory": "C:/Users/prick/2DGame2021/Debug",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\ai_view.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\ai_view.cpp",
+  "file": "C:\\Users\\prick\\2DGame2021\\src\\ai_view.cpp"
+},
+{
+  "directory": "C:/Users/prick/2DGame2021/Debug",
   "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/prick/2DGame2021/include  -std=c++17 -g -o CMakeFiles\\2DGame2021_core.dir\\src\\button.cpp.obj -c C:\\Users\\prick\\2DGame2021\\src\\button.cpp",
   "file": "C:\\Users\\prick\\2DGame2021\\src\\button.cpp"
 },

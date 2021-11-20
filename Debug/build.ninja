@@ -107,6 +107,13 @@ build main.exe: CXX_EXECUTABLE_LINKER__main_DEBUG CMakeFiles/main.dir/bin/main.c
 
 build cmake_object_order_depends_target_2DGame2021_core: phony || CMakeFiles/2DGame2021_core.dir
 
+build CMakeFiles/2DGame2021_core.dir/src/ai_view.cpp.obj: CXX_COMPILER__2DGame2021_core_DEBUG C$:/Users/prick/2DGame2021/src/ai_view.cpp || cmake_object_order_depends_target_2DGame2021_core
+  DEP_FILE = CMakeFiles\2DGame2021_core.dir\src\ai_view.cpp.obj.d
+  FLAGS = -std=c++17 -g
+  INCLUDES = -IC:/Users/prick/2DGame2021/include
+  OBJECT_DIR = CMakeFiles\2DGame2021_core.dir
+  OBJECT_FILE_DIR = CMakeFiles\2DGame2021_core.dir\src
+
 build CMakeFiles/2DGame2021_core.dir/src/button.cpp.obj: CXX_COMPILER__2DGame2021_core_DEBUG C$:/Users/prick/2DGame2021/src/button.cpp || cmake_object_order_depends_target_2DGame2021_core
   DEP_FILE = CMakeFiles\2DGame2021_core.dir\src\button.cpp.obj.d
   FLAGS = -std=c++17 -g
@@ -185,7 +192,7 @@ build CMakeFiles/2DGame2021_core.dir/src/state_playing.cpp.obj: CXX_COMPILER__2D
 #############################################
 # Link the static library lib2DGame2021_core.a
 
-build lib2DGame2021_core.a: CXX_STATIC_LIBRARY_LINKER__2DGame2021_core_DEBUG CMakeFiles/2DGame2021_core.dir/src/button.cpp.obj CMakeFiles/2DGame2021_core.dir/src/ceila.cpp.obj CMakeFiles/2DGame2021_core.dir/src/ceila_view.cpp.obj CMakeFiles/2DGame2021_core.dir/src/character.cpp.obj CMakeFiles/2DGame2021_core.dir/src/missile.cpp.obj CMakeFiles/2DGame2021_core.dir/src/missile_ai.cpp.obj CMakeFiles/2DGame2021_core.dir/src/sprite_sheet.cpp.obj CMakeFiles/2DGame2021_core.dir/src/state_controller.cpp.obj CMakeFiles/2DGame2021_core.dir/src/state_menu.cpp.obj CMakeFiles/2DGame2021_core.dir/src/state_playing.cpp.obj
+build lib2DGame2021_core.a: CXX_STATIC_LIBRARY_LINKER__2DGame2021_core_DEBUG CMakeFiles/2DGame2021_core.dir/src/ai_view.cpp.obj CMakeFiles/2DGame2021_core.dir/src/button.cpp.obj CMakeFiles/2DGame2021_core.dir/src/ceila.cpp.obj CMakeFiles/2DGame2021_core.dir/src/ceila_view.cpp.obj CMakeFiles/2DGame2021_core.dir/src/character.cpp.obj CMakeFiles/2DGame2021_core.dir/src/missile.cpp.obj CMakeFiles/2DGame2021_core.dir/src/missile_ai.cpp.obj CMakeFiles/2DGame2021_core.dir/src/sprite_sheet.cpp.obj CMakeFiles/2DGame2021_core.dir/src/state_controller.cpp.obj CMakeFiles/2DGame2021_core.dir/src/state_menu.cpp.obj CMakeFiles/2DGame2021_core.dir/src/state_playing.cpp.obj
   LANGUAGE_COMPILE_FLAGS = -std=c++17 -g
   OBJECT_DIR = CMakeFiles\2DGame2021_core.dir
   POST_BUILD = cd .

@@ -2,12 +2,14 @@
 #define AI_VIEw_HPP
 
 #include "glob.hpp"
+#include "view.hpp"
+#include "entity.hpp"
+#include "character.hpp"
 
-//#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <memory>
 
-class Entity;
-class Character;
+
 
 
 class AiView : public View{
@@ -16,8 +18,10 @@ public:
 	 * @brief Construct a new AIView object
 	 * 
 	 * @param actor the ai
+	 * @param entities list of all entities in the game
 	 */
-	AIView(const std::shared_ptr<Entity> actor);
+	AIView(const std::shared_ptr<std::list<std::shared_ptr<Entity>>> &entities,
+	          std::shared_ptr<Entity> actor) : View(entities) _actor(actor){};
 
 	/**
 	 * @brief check to see if target entity is in range
@@ -43,6 +47,7 @@ public:
 
 protected:
 	int range;
-	std::shared_ptr<Entity> actor;
+	std::shared_ptr<Entity> _actor;
 	std::shared_ptr<Character> target;
+	std::shared_ptr<std::list<std::shared_ptr<Entity>>> &entities
 }
