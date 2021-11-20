@@ -17,6 +17,8 @@ enum class Rot { clockwise, counterclockwise, none };
 
 inline extern const double GLOB_PI = 3.14159265358979323846;
 
+enum class Allegiance { good, bad, neutral};
+
 /* Geometric vector */
 struct vect {
 	vect(const float &x, const float &y) : x(x), y(y){};

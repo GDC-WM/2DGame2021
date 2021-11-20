@@ -24,6 +24,7 @@ public:
 
 protected:
 	float _speed; // speed of movement of the entity
+	glob::Allegiance allegiance; //the side the character is on
 };
 
 #endif
