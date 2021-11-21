@@ -58,7 +58,7 @@ public:
 	virtual void update() { _pos += _velocity * glob::dt; };
 
 	/**
-	 * Draw itself on the RenderWindow
+	 * Draw entity on the RenderWindow
 	 *
 	 * @param RenderWindow RenderWindow to draw to
 	 */

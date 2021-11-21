@@ -11,6 +11,7 @@ Missile::Missile(const glob::vect &pos, const float &orientation) : Entity(pos, 
 	_sprite_sheet.set_loop(_cruising);
 	_velocity = {10, 0}; // m/s
 
+	// set fuse
 	_start_time = std::chrono::steady_clock::now();
 };
 

@@ -103,11 +103,10 @@ inline vect normalize(const vect &v) {
 }
 
 /**
- * Convert vectors. Flips Y axis and applies scale factor
+ * Convert a vector. Flips Y axis and applies scale factor
  */
 inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y) / scale; };
 inline vect convert_vect(const sf::Vector2i &v) { return vect(v.x, -v.y) / scale; };
-
 inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y) * scale; };
 
 /**

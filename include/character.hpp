@@ -4,6 +4,8 @@
 #include "entity.hpp"
 #include "glob.hpp"
 
+#include <cmath>
+
 /**
  * An Entity that is a character in the game. Characters have inventories and
  * are capable of creating dialog.
@@ -19,13 +21,15 @@ public:
 	/**
 	 * @param d New direction of movement of the character in radians
 	 */
-	void set_direction(const float &d);
+	void set_direction(const float &d) {
+		_velocity = {std::cos(d) * _speed, std::sin(d) * _speed};
+	};
 
 	/**
 	 * @param v New vector velocity of the character -- magnitude will be
 	 * adjusted to the speed of the character
 	 */
-	void set_direction(const glob::vect &v);
+	void set_direction(const glob::vect &v) { _velocity = glob::normalize(v) * get_speed(); };
 
 	void set_speed(float v) { _speed = v; };
 
