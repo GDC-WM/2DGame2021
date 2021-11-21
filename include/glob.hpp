@@ -4,6 +4,9 @@
 #include <SFML/System/Vector2.hpp>
 #include <cmath>
 
+/**
+ * Includes some constants and a geometric vector implementation
+ */
 namespace glob {
 /* physics update time in ms */
 inline extern const double dt = 1.f / 60.f;
