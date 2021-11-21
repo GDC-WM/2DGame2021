@@ -27,7 +27,7 @@ StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
 	_views->emplace_back(_celia_view);
 
 	// add a missile
-	std::shared_ptr<Missile> missile = std::make_shared<Missile>(glob::vect(700, 200), glob::GLOB_PI);
+	std::shared_ptr<Missile> missile = std::make_shared<Missile>(glob::vect(700, 200), glob::pi);
 	this->add_entity(missile);
 	this->add_view(std::make_shared<MissileAI>(_entities, missile, celia));
 }

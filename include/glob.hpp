@@ -12,10 +12,11 @@ inline extern const double dt = 1.f / 60.f;
 /* scale of drawing */
 inline extern const float scale = 1; // TODO: settle in on a scale factor
 
+/* define pi */
+inline extern const double pi = 3.14159265358979323846;
+
 /* rotational direction */
 enum class Rot { clockwise, counterclockwise, none };
-
-inline extern const double GLOB_PI = 3.14159265358979323846;
 
 /* Geometric vector */
 struct vect {
