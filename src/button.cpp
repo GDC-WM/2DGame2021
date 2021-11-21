@@ -13,9 +13,8 @@ Button::Button(const glob::vect &pos, const std::string &text) : Entity(pos) {
 	_text.setPosition(glob::convert_vect(pos));
 	_text.setCharacterSize(100);
 	_text.setFillColor(sf::Color::Red);
-	if (!_font.loadFromFile("../fonts/arial.ttf")) std::cout << "can't load font" << std::endl;
-	else
-		_text.setFont(_font);
+	if (_font.loadFromFile("../fonts/arial.ttf")) _text.setFont(_font);
+	else std::cout << "can't load font" << std::endl;
 
 	_shape.setOrigin(glob::convert_vect(_size / 2));
 	_shape.setPosition(glob::convert_vect(pos));

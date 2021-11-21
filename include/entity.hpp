@@ -11,7 +11,7 @@
 class Entity {
 public:
 	/**
-	 * @param pos Center point of the entity
+	 * @param pos Vector center point of the entity
 	 * @param size Vector dimensions of the entity (defaults to 0, 0)
 	 */
 	Entity(const glob::vect &pos, const glob::vect &size = {0, 0}) : _pos(pos), _size(size){};
@@ -59,7 +59,7 @@ public:
 
 	/**
 	 * Draw itself on the RenderWindow
-	 * 
+	 *
 	 * @param RenderWindow RenderWindow to draw to
 	 */
 	virtual void draw(sf::RenderWindow &){};
