@@ -7,6 +7,10 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
+/**
+ * Controls Celia based on user's keyboard input and draws entities to the
+ * screen
+ */
 class CeliaView : public View {
 public:
 	CeliaView(const std::shared_ptr<std::list<std::shared_ptr<Entity>>> &entities,
@@ -14,7 +18,7 @@ public:
 			: View(entities), _celia(character){};
 
 	/**
-	 * Draw the screen
+	 * Draw entity list to the screen
 	 */
 	void draw(sf::RenderWindow &);
 

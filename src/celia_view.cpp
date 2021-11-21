@@ -1,23 +1,29 @@
 #include "celia_view.hpp"
 
+#include "celia.hpp"
+
+#include <SFML/Graphics.hpp>
+#include <memory>
+
 void CeliaView::draw(sf::RenderWindow &w) {
 	// draw entities
 	for (auto entity : *_entities) entity->draw(w);
 }
 
 void CeliaView::update() {
-	glob::vect dir_vectors(0, 0);
+	// set movement direction based on keyboard input
+	glob::vect new_dir(0, 0);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-		dir_vectors += glob::vect(0, 1);
+		new_dir += glob::vect(0, 1);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		dir_vectors += glob::vect(0, -1);
+		new_dir += glob::vect(0, -1);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		dir_vectors += glob::vect(-1, 0);
+		new_dir += glob::vect(-1, 0);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		dir_vectors += glob::vect(1, 0);
+		new_dir += glob::vect(1, 0);
 	}
-	_celia->set_direction(dir_vectors);
+	_celia->set_direction(new_dir);
 }

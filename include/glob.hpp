@@ -2,7 +2,6 @@
 #define GLOB_HPP
 
 #include <SFML/System/Vector2.hpp>
-#include <chrono>
 #include <cmath>
 
 namespace glob {
