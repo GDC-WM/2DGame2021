@@ -17,11 +17,6 @@ public:
 	          std::shared_ptr<Celia> character)
 			: View(entities), _celia(character){};
 
-	/**
-	 * Draw entity list to the screen
-	 */
-	void draw(sf::RenderWindow &);
-
 	void update() override;
 
 private:

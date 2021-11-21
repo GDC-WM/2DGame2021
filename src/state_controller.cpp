@@ -3,6 +3,7 @@
 
 
 StateController::StateController() {
+	// set view position so (0, 0) is at the bottom left of the view
 	sf::View view = _window.getView();
 	view.move(0, -view.getSize().y);
 	_window.setView(view);

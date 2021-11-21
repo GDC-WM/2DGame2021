@@ -5,11 +5,6 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-void CeliaView::draw(sf::RenderWindow &w) {
-	// draw entities
-	for (auto entity : *_entities) entity->draw(w);
-}
-
 void CeliaView::update() {
 	// set movement direction based on keyboard input
 	glob::vect new_dir(0, 0);

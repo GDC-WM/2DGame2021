@@ -7,6 +7,9 @@
 class Entity;
 
 
+/**
+ * Controls an entity
+ */
 class View : public std::enable_shared_from_this<View> {
 public:
 	/**

@@ -9,6 +9,9 @@
 #include "button.hpp"
 
 
+/**
+ * Main menu state
+ */
 class StateMenu : public State {
 public:
 	StateMenu(std::shared_ptr<StateController>);
