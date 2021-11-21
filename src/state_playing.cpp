@@ -1,7 +1,7 @@
 #include "state_playing.hpp"
 
-#include "ceila.hpp"
-#include "ceila_view.hpp"
+#include "celia.hpp"
+#include "celia_view.hpp"
 #include "entity.hpp"
 #include "glob.hpp"
 #include "missile.hpp"
@@ -19,17 +19,17 @@ StatePlaying::StatePlaying(std::shared_ptr<StateController> sc) : State(sc) {
 	_entities = std::make_shared<std::list<std::shared_ptr<Entity>>>();
 	_views = std::make_shared<std::list<std::shared_ptr<View>>>();
 
-	// add ceila to list of entities
-	std::shared_ptr<Ceila> ceila = std::make_shared<Ceila>(glob::vect(100, 100));
-	this->add_entity(ceila);
-	// add ceila view to list of views
-	_ceila_view = std::make_shared<CeilaView>(_entities, ceila);
-	_views->emplace_back(_ceila_view);
+	// add celia to list of entities
+	std::shared_ptr<Celia> celia = std::make_shared<Celia>(glob::vect(100, 100));
+	this->add_entity(celia);
+	// add celia view to list of views
+	_celia_view = std::make_shared<CeliaView>(_entities, celia);
+	_views->emplace_back(_celia_view);
 
 	// add a missile
 	std::shared_ptr<Missile> missile = std::make_shared<Missile>(glob::vect(700, 200), glob::GLOB_PI);
 	this->add_entity(missile);
-	this->add_view(std::make_shared<MissileAI>(_entities, missile, ceila));
+	this->add_view(std::make_shared<MissileAI>(_entities, missile, celia));
 }
 
 void StatePlaying::add_entity(std::shared_ptr<Entity> e) {

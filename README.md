@@ -6,13 +6,13 @@
 ```
 main <- StateController <-> State
                             |- StateMenu
-                            |- StatePlaying <-------------- Entity
-                            |               <- View <-------|
-                            |                  |- AIView    |- Character
-                            |                               |  |- Enemy
-                            |                               |  |- Player
-                            |                               |- Wall
-                            |                               |- Item
+                            |- StatePlaying <----------------- Entity
+                            |               <- View <----------|
+                            |                  |- AIView       |- Character
+                            |                  |- CeliaView    |  |- Enemy
+                            |                  |- MissileView  |  |- Celia
+                            |                                  |- Missile
+                            |                                  |- Item
                             |- StatePaused
 ```
 

@@ -1,4 +1,4 @@
-#include "ceila.hpp"
+#include "celia.hpp"
 
 #include "character.hpp"
 #include "sprite_sheet.hpp"
@@ -9,14 +9,14 @@
 /**
  * @brief Construct a new Main Character:: Main Character object
  * Has default velocity of <30, 30>
- * @param pos Position to set Ceila to
+ * @param pos Position to set Celia to
  */
-Ceila::Ceila(const glob::vect &pos) : Character(pos, {30, 30}) {
+Celia::Celia(const glob::vect &pos) : Character(pos, {30, 30}) {
 	_sprite_sheet.set_loop(_walking);
 	_speed = 500;
 }
 
-void Ceila::draw(sf::RenderWindow &w) {
+void Celia::draw(sf::RenderWindow &w) {
 	_sprite_sheet.set_pos(_pos);
 	w.draw(_sprite_sheet.get_sprite());
 }

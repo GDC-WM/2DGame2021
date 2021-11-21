@@ -65,11 +65,11 @@ Sort of counter-intuitive, you would think something that goes into use of anoth
 
 *Character* - can move left or right with Entity’s speed
 
-*Celia* - logic for Ceila, currently only has the cannon spritesheet and animation
+*Celia* - logic for Celia, currently only has the cannon spritesheet and animation
 
 *View* - a general purpose view class that contains a shared pointered list of entities to be pulled and drawn by a State
 
-*CeliaView* - uses the Ceila logic
+*CeliaView* - uses the Celia logic
 
 *Missile* - another entity that has its own way of moving and turning with acceleration
 

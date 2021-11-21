@@ -1,16 +1,14 @@
 #ifndef STATE_PLAYING_HPP
 #define STATE_PLAYING_HPP
 
-#include "ceila.hpp"
-#include "ceila_view.hpp"
 #include "state.hpp"
-#include "view.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <list>
 #include <memory>
 
 class View;
+class CeliaView;
 class Entity;
 class StateController;
 
@@ -56,7 +54,7 @@ public:
 private:
 	std::shared_ptr<std::list<std::shared_ptr<View>>> _views;
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
-	std::shared_ptr<CeilaView> _ceila_view;
+	std::shared_ptr<CeliaView> _celia_view;
 };
 
 #endif
