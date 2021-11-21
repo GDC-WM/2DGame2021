@@ -36,7 +36,7 @@ void StatePlaying::add_entity(std::shared_ptr<Entity> e) {
 	// insert according to entity priority
 	_entities->insert(
 			std::lower_bound(_entities->begin(), _entities->end(), e,
-	                         [](auto a1, auto a2) -> bool { return a1->priority < a2->priority; }),
+			                 [](auto a1, auto a2) -> bool { return a1->priority < a2->priority; }),
 			e);
 };
 

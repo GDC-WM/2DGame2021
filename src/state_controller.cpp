@@ -1,6 +1,6 @@
 #include "state_controller.hpp"
-#include "state.hpp"
 
+#include "state.hpp"
 
 StateController::StateController() {
 	// set view position so (0, 0) is at the bottom left of the view
@@ -8,7 +8,6 @@ StateController::StateController() {
 	view.move(0, -view.getSize().y);
 	_window.setView(view);
 }
-
 
 void StateController::update() {
 	if (_states.empty()) {

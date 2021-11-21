@@ -6,7 +6,6 @@
 
 class Entity;
 
-
 /**
  * Controls an entity
  */
@@ -15,17 +14,16 @@ public:
 	/**
 	 * @param entities List of entities
 	 */
-	View(const std::shared_ptr<std::list<std::shared_ptr<Entity>>> &entities) : _entities(entities) {};
+	View(const std::shared_ptr<std::list<std::shared_ptr<Entity>>> &entities)
+			: _entities(entities){};
 
 	/**
 	 * Update the view
 	 */
 	virtual void update() = 0;
 
-
 protected:
 	std::shared_ptr<std::list<std::shared_ptr<Entity>>> _entities;
 };
-
 
 #endif
