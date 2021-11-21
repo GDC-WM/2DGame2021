@@ -13,7 +13,7 @@ class Entity;
 class StateController;
 
 /*
- * A state of the game
+ * In-game state
  */
 class StatePlaying : public State {
 public:
@@ -24,7 +24,7 @@ public:
 	 */
 	const auto &get_entities() const { return _entities; };
 
-	// TODO: maybe move this method to glob
+	// TODO: maybe move this method implementation to glob
 	void add_entity(std::shared_ptr<Entity>);
 
 	/**
@@ -35,19 +35,15 @@ public:
 	// TODO: maybe remove this method
 	void add_view(std::shared_ptr<View> v) { _views->push_back(v); };
 
-	void draw(sf::RenderWindow &w) override;
-
-	/*
-	 * Game Controller intercepts event and delegates it to the current State's handle_event
-	 * function. This means, if the game is in StatePlaying state, Game Controller sends
-	 * the events to the function below.
+	/**
+	 * Draw entities to the screen
 	 */
+	void draw(sf::RenderWindow &) override;
+
 	void handle_event(const sf::Event &) override;
 
 	/*
-	 * Game Controller issues the current state to update every frame. This means,
-	 * if the game is in StatePlaying state, the function below gets called every
-	 * frame
+	 * update each view and entity
 	 */
 	void update() override;
 

@@ -1,18 +1,21 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
-#include <memory>
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 class StateController;
-
 
 /*
  * A state of the game
  */
 class State {
 public:
-	State(std::shared_ptr<StateController> sc) : _state_controller(sc) {};
+	/**
+	 * @param sc The state controller (used to allows a state to add or remove
+	 * states from the state stack)
+	 */
+	State(std::shared_ptr<StateController> sc) : _state_controller(sc){};
 
 	virtual void draw(sf::RenderWindow &) = 0;
 
@@ -23,6 +26,5 @@ public:
 protected:
 	std::shared_ptr<StateController> _state_controller;
 };
-
 
 #endif

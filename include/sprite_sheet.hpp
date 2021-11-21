@@ -7,6 +7,12 @@
 #include <chrono>
 #include <cmath>
 
+/**
+ * An animation from a spritesheet
+ *
+ * Specify the start frame, number of frames in the animation, and the frame
+ * time (number of milliseconds between each frame)
+ */
 struct Loop {
 	int start, frames, frame_time;
 
@@ -18,43 +24,44 @@ struct Loop {
 };
 
 /**
- * Facilitates creating an animation from a spritesheet.
+ * Facilitates creating an animation from a spritesheet
  */
 class SpriteSheet {
 public:
 	/**
-	 * @param filename Filename
-	 * @param sprite_size The length of a side of the (square) sprite in pixels
+	 * @param path Path to the spritesheet file
+	 * @param sprite_length The length of a side of the (square) sprite in
+	 * pixels
 	 */
-	SpriteSheet(const std::string &filename, const int &sprite_length);
+	SpriteSheet(const std::string &path, const int &sprite_length);
 
 	void set_pos(const glob::vect &v) { _sprite.setPosition(glob::convert_vect(v)); };
 
 	void set_pos(const float &x, const float &y) { this->set_pos({x, y}); };
 
-	void set_orientation(const float &angle) { _sprite.setRotation(angle * -180 / glob::GLOB_PI); };
+	void set_orientation(const float &angle) { _sprite.setRotation(angle * -180 / glob::pi); };
 
 	/**
-	 * First updates the sprite to the proper frame, then returns
+	 * Updates the sprite to the proper frame, then returns it
 	 *
 	 * @return The sprite
 	 */
 	const sf::Sprite &get_sprite();
 
 	/**
-	 * @return The current loop.
+	 * @return The current loop
 	 */
 	const Loop &get_loop() const { return _loop; };
 
 	/**
-	 * Set the loop within the sprite sheet.
+	 * Set the loop within the sprite sheet
 	 *
 	 * @param loop New loop
 	 */
 	void set_loop(const Loop &loop) { _loop = loop; };
 
 	/**
-	 * Set the loop within the sprite sheet.
+	 * Set the loop within the sprite sheet
 	 *
 	 * @param start The frame number of the first frame in the sequence
 	 * @param frames The number of frames in the sequence
@@ -65,14 +72,14 @@ public:
 	};
 
 	/**
-	 * Run a loop one time, then return to the last loop.
+	 * Run a loop one time, then return to the last loop
 	 *
 	 * @param loop Oneshot loop
 	 */
 	void set_one_shot(const Loop &loop);
 
 	/**
-	 * Run a loop one time, then return to the last loop.
+	 * Run a loop one time, then return to the last loop
 	 *
 	 * @param start The frame number of the first frame in the sequence
 	 * @param frames The number of frames in the sequence
@@ -93,7 +100,7 @@ public:
 	void mirror() { _sprite.setScale(-_sprite.getScale().x, glob::scale); };
 
 	/**
-	 * Reset the animation to the first frame in the sequence.
+	 * Reset the current loop to the first frame in the sequence
 	 */
 	void restart() { _start_time = std::chrono::steady_clock::now(); };
 

@@ -2,9 +2,11 @@
 #define GLOB_HPP
 
 #include <SFML/System/Vector2.hpp>
-#include <chrono>
 #include <cmath>
 
+/**
+ * Includes some constants and a geometric vector implementation
+ */
 namespace glob {
 /* physics update time in ms */
 inline extern const double dt = 1.f / 60.f;
@@ -12,10 +14,11 @@ inline extern const double dt = 1.f / 60.f;
 /* scale of drawing */
 inline extern const float scale = 1; // TODO: settle in on a scale factor
 
+/* define pi */
+inline extern const double pi = 3.14159265358979323846;
+
 /* rotational direction */
 enum class Rot { clockwise, counterclockwise, none };
-
-inline extern const double GLOB_PI = 3.14159265358979323846;
 
 /* Geometric vector */
 struct vect {
@@ -103,11 +106,10 @@ inline vect normalize(const vect &v) {
 }
 
 /**
- * Convert vectors. Flips Y axis and applies scale factor
+ * Convert a vector. Flips Y axis and applies scale factor
  */
 inline vect convert_vect(const sf::Vector2f &v) { return vect(v.x, -v.y) / scale; };
 inline vect convert_vect(const sf::Vector2i &v) { return vect(v.x, -v.y) / scale; };
-
 inline sf::Vector2f convert_vect(const vect &v) { return sf::Vector2f(v.x, -v.y) * scale; };
 
 /**

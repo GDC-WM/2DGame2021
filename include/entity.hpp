@@ -11,37 +11,57 @@
 class Entity {
 public:
 	/**
-	 * @param pos center point of the actor
-	 * @param size dimensions of the actor (defaults to 0, 0)
+	 * @param pos Vector center point of the entity
+	 * @param size Vector dimensions of the entity (defaults to 0, 0)
 	 */
 	Entity(const glob::vect &pos, const glob::vect &size = {0, 0}) : _pos(pos), _size(size){};
 
+	/**
+	 * @return The vector position of the entity
+	 */
 	const glob::vect &get_pos() const { return _pos; };
 
+	/**
+	 * @return The vector dimensions of the entity
+	 */
 	const glob::vect &get_size() const { return _size; };
 
+	/**
+	 * @return The direction the entity is facing in radians
+	 */
 	const float &get_orientation() const { return _orientation; };
 
+	/**
+	 * @return The vector velocity of the entity
+	 */
 	const glob::vect &get_velocity() { return _velocity; };
 
-	const void set_pos(const glob::vect &v) { _pos = v; }
-
-	const void set_size(const glob::vect &v) { _size = v; }
-
-	const void set_velocity(const glob::vect &v) { _velocity = v; }
-
 	/**
-	 * @return true if the point falls within this entity
+	 * Detect a collision
+	 *
+	 * @param point Vector position to test
+	 * @return True if the point falls within this entity
 	 */
 	virtual bool collides(const glob::vect &point) const { return false; };
 
 	/**
-	 * @return true if the entities overlap
+	 * Detect a collision
+	 *
+	 * @param Entity Entity to test
+	 * @return Whether the entities overlap
 	 */
 	virtual bool collides(const Entity &) const { return false; };
 
+	/**
+	 * Updates position based on velocity
+	 */
 	virtual void update() { _pos += _velocity * glob::dt; };
 
+	/**
+	 * Draw entity on the RenderWindow
+	 *
+	 * @param RenderWindow RenderWindow to draw to
+	 */
 	virtual void draw(sf::RenderWindow &){};
 
 	int priority = 0;

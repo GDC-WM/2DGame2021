@@ -5,15 +5,21 @@
 #include "sprite_sheet.hpp"
 
 /**
- * @brief Is a Character
+ * Class for the main character
  */
 class Celia : public Character {
 public:
+	/**
+	 * @param pos Vector center point of Celia
+	 */
 	Celia(const glob::vect &pos);
 
+	/**
+	 * Draw Celia on the RenderWindow
+	 *
+	 * @param RenderWindow RenderWindow to draw to
+	 */
 	void draw(sf::RenderWindow &);
-
-	void move(const glob::vect &moveBy);
 
 private:
 	SpriteSheet _sprite_sheet{"../resources/cannon-barrel.png", 64};
